@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class CarData : MonoBehaviour
+public class WeaponData : MonoBehaviour
 {
-    public int Index;
+    public string Name;
     public int Cost;
     public string Description;
 }
