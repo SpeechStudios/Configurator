@@ -32,17 +32,65 @@ public class GameManager : MonoBehaviour
     private Weapon currentWeapon;
     private int currentWeaponIndex;
     private int currentweaponHolder;
+    private bool Customization;
+    private bool highlight;
+    private GameObject storredHighlight;
 
 
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+        if(PlayerPrefs.HasKey("CarData"))
+        {
+            List<SavedCar> data = SaveData.LoadCarFile("CarData");
+            foreach (var item in data)
+            {
+                carSlots.Add(cars[item.CarIndex].GetComponent<CarStatistics>());
+            }
+        }
+
         CarShopUIPanel.SetActive(false);
         GarrageUIPanel.SetActive(false);
         CustomizeUIPanel.SetActive(false);
         WeaponShopUIPanel.SetActive(false);
         cam = Camera.main;
+    }
+    private void Update()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Weapon")) && Customization)
+        {
+            if(storredHighlight && hit.transform.gameObject !=storredHighlight)
+            {
+                foreach (var item in storredHighlight.transform.GetComponentsInChildren<MeshRenderer>())
+                {
+                    item.material.SetColor("_EmissionColor", Color.black);
+                }
+                highlight = false;
+            }
+            if (!highlight)
+            {
+                foreach (var item in hit.transform.GetComponentsInChildren<MeshRenderer>())
+                {
+                    item.material.SetColor("_EmissionColor", Color.grey);
+                }
+                highlight = true;
+                storredHighlight = hit.transform.gameObject;
+            }
+        }
+        else
+        {
+            if (storredHighlight)
+            {
+                foreach (var item in storredHighlight.transform.GetComponentsInChildren<MeshRenderer>())
+                {
+                    item.material.SetColor("_EmissionColor", Color.black);
+                }
+                storredHighlight = null;
+            }
+            highlight = false;
+        }
     }
 
     #region CarShop
@@ -83,12 +131,14 @@ public class GameManager : MonoBehaviour
         CarStatistics data = cars[currentCar].GetComponent<CarStatistics>();
         CarNameUI.text = data.Name;
         CarCostUI.text = "$" + data.Cost;
+        data.Description = data.Description.Replace("\\n", "\n");
         CarDescriptionUI.text = data.Description;
     }
     public void PurchaseCar()
     {
         carSlots.Add(cars[currentCar].GetComponent<CarStatistics>());
         PurchaseCompleteUI.SetActive(true);
+        SaveData.SaveCarData(carSlots);
     }
     public void ContinueShopping()
     {
@@ -174,7 +224,7 @@ public class GameManager : MonoBehaviour
         currentCarPrefab = car;
         if (PlayerPrefs.HasKey(currentCar.ToString()))
         {
-            List<SavedWeapon> data = SaveData.LoadFile(currentCar.ToString());
+            List<SavedWeapon> data = SaveData.LoadWeaponFile(currentCar.ToString());
             foreach (var item in data)
             {
                 car.GetComponent<CarStatistics>().carData.weapons[item.WeaponSelectIndex].PurchasedWeapon = DataManager.Instance.GetWeaponPrefabByName(item.WeaponName);
@@ -198,13 +248,19 @@ public class GameManager : MonoBehaviour
         foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().carData.weapons)
         {
             item.WeaponTransform.parent.gameObject.SetActive(true);
-            if (item.PurchasedWeapon != null && item.InstantiatedWeapon == null)
+            if (item.PurchasedWeapon != null)
             {
                 item.WeaponTransform.parent.GetComponent<MeshRenderer>().enabled = false;
-                item.InstantiatedWeapon = Instantiate(item.PurchasedWeapon, item.WeaponTransform.position, item.WeaponTransform.rotation);
-                item.InstantiatedWeapon.transform.localScale = item.WeaponTransform.localScale;
+                if (item.InstantiatedWeapon == null)
+                {
+                    item.InstantiatedWeapon = Instantiate(item.PurchasedWeapon, item.WeaponTransform.position, item.WeaponTransform.rotation);
+                    item.InstantiatedWeapon.transform.localScale = item.WeaponTransform.localScale;
+                }
             }
+
         }
+        cam.GetComponent<CameraCustomization>().enabled = true;
+        Customization = true;
     }
     public void AquireNewWeapon(int selectedWeaponHolder)
     {
@@ -267,7 +323,7 @@ public class GameManager : MonoBehaviour
     {
         currentWeapon.PurchasedWeapon = DataManager.Instance.GetWeaponPrefabByName(CurrentWeaponPrefab.GetComponent<WeaponData>().Name);
         WeaponShopToCustomize();
-        SaveData.SaveCarData(currentCarPrefab.GetComponent<CarStatistics>().carData, currentCar.ToString());
+        SaveData.SaveCarWeaponData(currentCarPrefab.GetComponent<CarStatistics>().carData, currentCar.ToString());
     }
     public void DisplayWeaponData()
     {
@@ -277,7 +333,6 @@ public class GameManager : MonoBehaviour
         WeaponDescriptionUI.text = data.Description;
     }
     #endregion
-
 
     #region UIPanelButtons
     public void MenuToCarShop()
@@ -289,6 +344,7 @@ public class GameManager : MonoBehaviour
         LeanTween.move(cam.gameObject, Cam_Pos_Select, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Select.rotation.eulerAngles, TransitionTime);
         DisplayCarData();
+        cam.GetComponent<CameraCustomization>().enabled = true;
     }
     public void MenuToGarrage()
     {
@@ -298,6 +354,7 @@ public class GameManager : MonoBehaviour
         LeanTween.move(cam.gameObject, Cam_Pos_Select, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Select.rotation.eulerAngles, TransitionTime);
         OpenGarrage(currentCar);
+        cam.GetComponent<CameraCustomization>().enabled = true;
     }
     public void CarShopToMenu()
     {
@@ -306,6 +363,7 @@ public class GameManager : MonoBehaviour
         cars[currentCar].SetActive(false);
         LeanTween.move(cam.gameObject, Cam_Pos_Main, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Main.rotation.eulerAngles, TransitionTime);
+        cam.GetComponent<CameraCustomization>().enabled = false;
     }
     public void CarShopToCustomize()
     {
@@ -331,6 +389,7 @@ public class GameManager : MonoBehaviour
         Destroy(currentCarPrefab);
         LeanTween.move(cam.gameObject, Cam_Pos_Main, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Main.rotation.eulerAngles, TransitionTime);
+        cam.GetComponent<CameraCustomization>().enabled = false;
     }
     public void GarageToCustomize()
     {
@@ -357,6 +416,7 @@ public class GameManager : MonoBehaviour
         {
             item.WeaponTransform.parent.gameObject.SetActive(false);
         }
+        Customization = false;
     }
     public void CustomizeToWeaponShop(bool Destroyprevious)
     {
@@ -373,6 +433,8 @@ public class GameManager : MonoBehaviour
         LeanTween.move(cam.gameObject, currentWeapon.WeaponCamTransform.position, TransitionTime);
         LeanTween.rotate(cam.gameObject, currentWeapon.WeaponCamTransform.rotation.eulerAngles, TransitionTime);
         DisplayWeaponData();
+        cam.GetComponent<CameraCustomization>().enabled = false;
+        Customization = false;
     }
     public void WeaponShopToCustomize()
     {

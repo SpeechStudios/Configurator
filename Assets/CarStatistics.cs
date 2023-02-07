@@ -23,7 +23,7 @@ public class Weapon
     public List<GameObject> availableWeapons;
     public Transform WeaponTransform;
     public Transform WeaponCamTransform;
-    [HideInInspector] public GameObject PurchasedWeapon;
+    public GameObject PurchasedWeapon;
     [HideInInspector] public GameObject InstantiatedWeapon;
     public int WeaponSelectIndex;
 }
