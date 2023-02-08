@@ -12,6 +12,7 @@ public class SavedWeapon
 public class SavedCar
 {
     public int CarIndex;
+    public Color color;
 }
 
 
@@ -47,22 +48,15 @@ public class SaveData : MonoBehaviour
         return loadedData;
     }
 
-    public static void SaveCarData(List<CarStatistics> savedData)
+    public static void SaveCarData(SavedCar carData, string slot)
     {
-        List<SavedCar> carData = new();
-        foreach (var item in savedData)
-        {
-            SavedCar savedCar = new();
-            savedCar.CarIndex = item.Index;
-            carData.Add(savedCar);
-        }
-        string json = JsonUtility.ToJson(new JsonableListWrapper<SavedCar>(carData));
-        PlayerPrefs.SetString("CarData", json);
+        string json = JsonUtility.ToJson(carData);
+        PlayerPrefs.SetString(slot, json);
     }
-    public static List<SavedCar> LoadCarFile(string slot)
+    public static SavedCar LoadCarFile(string slot)
     {
         string json = PlayerPrefs.GetString(slot);
-        List<SavedCar> loadedData = JsonUtility.FromJson<JsonableListWrapper<SavedCar>>(json).list;
+        SavedCar loadedData = JsonUtility.FromJson<SavedCar>(json);
         return loadedData;
     }
 }

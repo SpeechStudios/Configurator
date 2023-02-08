@@ -9,6 +9,8 @@ public class CarStatistics : MonoBehaviour
     public int Index;
     public int Cost;
     public string Description;
+    public Material mat;
+    public Color SavedColor;
     public CarData carData;
 }
 [System.Serializable]

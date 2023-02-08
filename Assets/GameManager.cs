@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,23 +10,27 @@ public class GameManager : MonoBehaviour
     public Transform Cam_Pos_Customize;
     public List<GameObject> cars;
     public float TransitionTime = 0.5f;
+    public int AvailableMoney = 200000;
 
     [Header("UI")]
+    public TextMeshProUGUI AvailableMoneyText;
     public GameObject MenuUIPanel;
-    public GameObject CarShopUIPanel, GarrageUIPanel, CustomizeUIPanel, WeaponShopUIPanel;
+    public GameObject CarShopUIPanel, GarrageUIPanel, CustomizeUIPanel, WeaponShopUIPanel, ColorShopUIPanel;
     public TextMeshProUGUI CarNameUI, CarCostUI, CarDescriptionUI;
     public TextMeshProUGUI WeaponNameUI, WeaponCostUI, WeaponDescriptionUI;
-    public GameObject PurchaseCompleteUI;
+    public TextMeshProUGUI ColorCost;
+    public GameObject PurchaseCompleteUI, PurchaseComplete, PriceShow;
+    public AudioClip NoMoney;
 
     private Camera cam;
     private int currentCar;
 
     [Header("Garage")]
-    public Transform carSlotTransform;
+
     public GameObject G_Next_PreviousPanel;
     public GameObject CustomizeButton, PurchaseCarButton;
     private GameObject currentCarPrefab;
-    [HideInInspector] public List<CarStatistics> carSlots;
+    public List<CarStatistics> carSlots;
 
     [Header("Customization")]
     private GameObject CurrentWeaponPrefab;
@@ -35,6 +40,8 @@ public class GameManager : MonoBehaviour
     private bool Customization;
     private bool highlight;
     private GameObject storredHighlight;
+    private Color OriginalColor;
+    private MaterialHolder selectedmat;
 
 
 
@@ -42,17 +49,21 @@ public class GameManager : MonoBehaviour
     {
         if(PlayerPrefs.HasKey("CarData"))
         {
-            List<SavedCar> data = SaveData.LoadCarFile("CarData");
-            foreach (var item in data)
+            for (int i = 0; i < PlayerPrefs.GetInt("CarData"); i++)
             {
-                carSlots.Add(cars[item.CarIndex].GetComponent<CarStatistics>());
+                SavedCar car = SaveData.LoadCarFile(i.ToString());
+                carSlots.Add(cars[car.CarIndex].GetComponent<CarStatistics>());
             }
         }
-
+        if(PlayerPrefs.HasKey("Money"))
+        {
+            AvailableMoney = PlayerPrefs.GetInt("Money");
+        }
         CarShopUIPanel.SetActive(false);
         GarrageUIPanel.SetActive(false);
         CustomizeUIPanel.SetActive(false);
         WeaponShopUIPanel.SetActive(false);
+        ColorShopUIPanel.SetActive(false);
         cam = Camera.main;
     }
     private void Update()
@@ -92,6 +103,11 @@ public class GameManager : MonoBehaviour
             highlight = false;
         }
     }
+    private void DisplayMoney()
+    {
+        AvailableMoneyText.text = "$" + AvailableMoney.ToString();
+        PlayerPrefs.SetInt("Money", AvailableMoney);
+    }
 
     #region CarShop
     public void S_Next()
@@ -129,6 +145,7 @@ public class GameManager : MonoBehaviour
     public void DisplayCarData()
     {
         CarStatistics data = cars[currentCar].GetComponent<CarStatistics>();
+        data.mat.color = data.SavedColor;
         CarNameUI.text = data.Name;
         CarCostUI.text = "$" + data.Cost;
         data.Description = data.Description.Replace("\\n", "\n");
@@ -136,9 +153,25 @@ public class GameManager : MonoBehaviour
     }
     public void PurchaseCar()
     {
-        carSlots.Add(cars[currentCar].GetComponent<CarStatistics>());
-        PurchaseCompleteUI.SetActive(true);
-        SaveData.SaveCarData(carSlots);
+        if (AvailableMoney >= cars[currentCar].GetComponent<CarStatistics>().Cost)
+        {
+            carSlots.Add(cars[currentCar].GetComponent<CarStatistics>());
+            PurchaseCompleteUI.SetActive(true);
+            PurchaseComplete.SetActive(true);
+            PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + cars[currentCar].GetComponent<CarStatistics>().Cost.ToString();
+            PriceShow.SetActive(true);
+            SavedCar car = new();
+            car.CarIndex = cars[currentCar].GetComponent<CarStatistics>().Index;
+            car.color = cars[currentCar].GetComponent<CarStatistics>().SavedColor;
+            SaveData.SaveCarData(car, (carSlots.Count -1).ToString());
+            PlayerPrefs.SetInt("CarData", carSlots.Count);
+            AvailableMoney -= cars[currentCar].GetComponent<CarStatistics>().Cost;
+            DisplayMoney();
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(NoMoney, transform.position);
+        }
     }
     public void ContinueShopping()
     {
@@ -219,7 +252,11 @@ public class GameManager : MonoBehaviour
     }
     public void InstantiateNewCar()
     {
-        GameObject car = Instantiate(cars[carSlots[currentCar].Index], carSlotTransform.position, carSlotTransform.rotation);
+        GameObject car = Instantiate(cars[carSlots[currentCar].Index], cars[carSlots[currentCar].Index].transform.position, cars[carSlots[currentCar].Index].transform.rotation);
+        SavedCar savedCarData = SaveData.LoadCarFile(currentCar.ToString());
+        Debug.Log(savedCarData.CarIndex);
+        car.GetComponent<CarStatistics>().mat.color = savedCarData.color;
+        car.GetComponent<CarStatistics>().SavedColor = savedCarData.color;
         car.SetActive(true);
         currentCarPrefab = car;
         if (PlayerPrefs.HasKey(currentCar.ToString()))
@@ -321,9 +358,21 @@ public class GameManager : MonoBehaviour
     }
     public void PurchaseWeapon()
     {
-        currentWeapon.PurchasedWeapon = DataManager.Instance.GetWeaponPrefabByName(CurrentWeaponPrefab.GetComponent<WeaponData>().Name);
-        WeaponShopToCustomize();
-        SaveData.SaveCarWeaponData(currentCarPrefab.GetComponent<CarStatistics>().carData, currentCar.ToString());
+        if (AvailableMoney >= CurrentWeaponPrefab.GetComponent<WeaponData>().Cost)
+        {
+            currentWeapon.PurchasedWeapon = DataManager.Instance.GetWeaponPrefabByName(CurrentWeaponPrefab.GetComponent<WeaponData>().Name);
+            WeaponShopToCustomize();
+            SaveData.SaveCarWeaponData(currentCarPrefab.GetComponent<CarStatistics>().carData, currentCar.ToString());
+            PurchaseComplete.SetActive(true);
+            PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + CurrentWeaponPrefab.GetComponent<WeaponData>().Cost.ToString();
+            PriceShow.SetActive(true);
+            AvailableMoney -= CurrentWeaponPrefab.GetComponent<WeaponData>().Cost;
+            DisplayMoney();
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(NoMoney, transform.position);
+        }
     }
     public void DisplayWeaponData()
     {
@@ -332,7 +381,53 @@ public class GameManager : MonoBehaviour
         WeaponCostUI.text = "$" + data.Cost;
         WeaponDescriptionUI.text = data.Description;
     }
+
+    public void HoverColor(MaterialHolder mat)
+    {
+        currentCarPrefab.GetComponent<CarStatistics>().mat.color = mat.myMat.color;
+        ColorCost.text = "$" + mat.Cost.ToString();
+    }
+    public void HoverExit()
+    {
+        if (selectedmat != null)
+        {
+            currentCarPrefab.GetComponent<CarStatistics>().mat.color = selectedmat.myMat.color;
+            ColorCost.text = "$" + selectedmat.Cost.ToString();
+        }
+        else
+        {
+            currentCarPrefab.GetComponent<CarStatistics>().mat.color = OriginalColor;
+            ColorCost.text = "";
+        }
+    }
+    public void SelectColor(MaterialHolder mat)
+    {
+        selectedmat = mat;
+    }
+    public void PurchaseColor()
+    {
+        if (selectedmat != null)
+        {
+            if (AvailableMoney >= selectedmat.Cost)
+            {
+                currentCarPrefab.GetComponent<CarStatistics>().SavedColor = selectedmat.myMat.color;
+                OriginalColor = selectedmat.myMat.color;
+                SavedCar car = new();
+                car.CarIndex = carSlots[currentCar].Index;
+                car.color = selectedmat.myMat.color;
+                SaveData.SaveCarData(car, currentCar.ToString());
+                PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + selectedmat.Cost.ToString();
+                PriceShow.SetActive(true);
+                AvailableMoney -= selectedmat.Cost;
+                DisplayMoney();
+                return;
+            }
+        }
+        AudioSource.PlayClipAtPoint(NoMoney, transform.position);
+    }
+
     #endregion
+
 
     #region UIPanelButtons
     public void MenuToCarShop()
@@ -444,6 +539,34 @@ public class GameManager : MonoBehaviour
         LeanTween.rotate(cam.gameObject, Cam_Pos_Customize.rotation.eulerAngles, TransitionTime);
         Destroy(CurrentWeaponPrefab);
         OpenCustomization();
+    }
+    public void CustomizeToColorShop()
+    {
+        CustomizeUIPanel.SetActive(false);
+        ColorShopUIPanel.SetActive(true);
+        LeanTween.move(cam.gameObject, Cam_Pos_Select, TransitionTime);
+        LeanTween.rotate(cam.gameObject, Cam_Pos_Select.rotation.eulerAngles, TransitionTime);
+        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().carData.weapons)
+        {
+            item.WeaponTransform.parent.gameObject.SetActive(false);
+        }
+        OriginalColor = currentCarPrefab.GetComponent<CarStatistics>().mat.color;
+        selectedmat = null;
+    }
+    public void ColorShopToCustomize()
+    {
+        ColorShopUIPanel.SetActive(false);
+        CustomizeUIPanel.SetActive(true);
+        LeanTween.move(cam.gameObject, Cam_Pos_Customize, TransitionTime);
+        LeanTween.rotate(cam.gameObject, Cam_Pos_Customize.rotation.eulerAngles, TransitionTime);
+        OpenCustomization();
+        currentCarPrefab.GetComponent<CarStatistics>().mat.color = OriginalColor;
+
+    }
+    public void Restart()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(0);
     }
     #endregion
 }
