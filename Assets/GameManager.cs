@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,9 +16,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI AvailableMoneyText;
     public GameObject MenuUIPanel;
-    public GameObject CarShopUIPanel, GarrageUIPanel, CustomizeUIPanel, WeaponShopUIPanel, ColorShopUIPanel;
-    public TextMeshProUGUI CarNameUI, CarCostUI, CarDescriptionUI;
-    public TextMeshProUGUI WeaponNameUI, WeaponCostUI, WeaponDescriptionUI;
+    public GameObject CustomizeUIPanel, ColorShopUIPanel;
     public TextMeshProUGUI ColorCost;
     public GameObject PurchaseCompleteUI, PurchaseComplete, PriceShow;
     public AudioClip NoMoney;
@@ -25,8 +24,19 @@ public class GameManager : MonoBehaviour
     private Camera cam;
     private int currentCar;
 
-    [Header("Garage")]
+    [Header("CarShop")]
+    public GameObject CarShopUIPanel;
+    public TextMeshProUGUI CarNameUI, CarCostUI;
+    public GameObject[] CarDescriptionUI;
+    public Slider carSpeedBar, carArmorBar;
 
+    [Header("WeaponShop")]
+    public GameObject WeaponShopUIPanel;
+    public TextMeshProUGUI WeaponNameUI, WeaponCostUI, WeaponSpecialUI, WeaponPurchaseUI;
+    public Slider weaponDpsBar, weaponArmorBar;
+
+    [Header("Garage")]
+    public GameObject GarrageUIPanel;
     public GameObject G_Next_PreviousPanel;
     public GameObject CustomizeButton, PurchaseCarButton;
     private GameObject currentCarPrefab;
@@ -34,7 +44,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Customization")]
     private GameObject CurrentWeaponPrefab;
-    private Weapon currentWeapon;
+    private WeaponData CurrentWeaponData;
+    private WeaponHolder currentWeapon;
     private int currentWeaponIndex;
     private int currentweaponHolder;
     private bool Customization;
@@ -42,11 +53,13 @@ public class GameManager : MonoBehaviour
     private GameObject storredHighlight;
     private Color OriginalColor;
     private MaterialHolder selectedmat;
+    public Button purchasedButton;
 
 
 
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         if(PlayerPrefs.HasKey("CarData"))
         {
             for (int i = 0; i < PlayerPrefs.GetInt("CarData"); i++)
@@ -58,6 +71,7 @@ public class GameManager : MonoBehaviour
         if(PlayerPrefs.HasKey("Money"))
         {
             AvailableMoney = PlayerPrefs.GetInt("Money");
+            AvailableMoneyText.text = AvailableMoney.ToString();
         }
         CarShopUIPanel.SetActive(false);
         GarrageUIPanel.SetActive(false);
@@ -148,8 +162,20 @@ public class GameManager : MonoBehaviour
         data.mat.color = data.SavedColor;
         CarNameUI.text = data.Name;
         CarCostUI.text = "$" + data.Cost;
-        data.Description = data.Description.Replace("\\n", "\n");
-        CarDescriptionUI.text = data.Description;
+        carSpeedBar.value = data.Speed / 500;
+        carArmorBar.value = data.Armor / 500;
+
+        for (int i = 0; i < 3; i++)
+        {
+            CarDescriptionUI[i].SetActive(false);
+            if (data.WeaponSlots[i] !="")
+            {
+                data.WeaponSlots[i] = data.WeaponSlots[i].Replace("\\n", "\n");
+                CarDescriptionUI[i].SetActive(true);
+                CarDescriptionUI[i].GetComponentInChildren<TextMeshProUGUI>().text = data.WeaponSlots[i];
+            }
+        }
+
     }
     public void PurchaseCar()
     {
@@ -161,7 +187,7 @@ public class GameManager : MonoBehaviour
             PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + cars[currentCar].GetComponent<CarStatistics>().Cost.ToString();
             PriceShow.SetActive(true);
             SavedCar car = new();
-            car.CarIndex = cars[currentCar].GetComponent<CarStatistics>().Index;
+            car.CarIndex = cars[currentCar].GetComponent<CarStatistics>().GarrageSlot;
             car.color = cars[currentCar].GetComponent<CarStatistics>().SavedColor;
             SaveData.SaveCarData(car, (carSlots.Count -1).ToString());
             PlayerPrefs.SetInt("CarData", carSlots.Count);
@@ -241,9 +267,9 @@ public class GameManager : MonoBehaviour
     }
     public void DestroyOldCar()
     {
-        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().carData.weapons)
+        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().weaponHolders)
         {
-            if (item.PurchasedWeapon != null)
+            if (item.EquippedWeapon != null)
             {
                 Destroy(item.InstantiatedWeapon);
             }
@@ -252,46 +278,31 @@ public class GameManager : MonoBehaviour
     }
     public void InstantiateNewCar()
     {
-        GameObject car = Instantiate(cars[carSlots[currentCar].Index], cars[carSlots[currentCar].Index].transform.position, cars[carSlots[currentCar].Index].transform.rotation);
+        GameObject car = Instantiate(cars[carSlots[currentCar].GarrageSlot], cars[carSlots[currentCar].GarrageSlot].transform.position, cars[carSlots[currentCar].GarrageSlot].transform.rotation);
         SavedCar savedCarData = SaveData.LoadCarFile(currentCar.ToString());
-        Debug.Log(savedCarData.CarIndex);
         car.GetComponent<CarStatistics>().mat.color = savedCarData.color;
         car.GetComponent<CarStatistics>().SavedColor = savedCarData.color;
         car.SetActive(true);
         currentCarPrefab = car;
-        if (PlayerPrefs.HasKey(currentCar.ToString()))
-        {
-            List<SavedWeapon> data = SaveData.LoadWeaponFile(currentCar.ToString());
-            foreach (var item in data)
-            {
-                car.GetComponent<CarStatistics>().carData.weapons[item.WeaponSelectIndex].PurchasedWeapon = DataManager.Instance.GetWeaponPrefabByName(item.WeaponName);
-            }
-            foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().carData.weapons)
-            {
-                if (item.PurchasedWeapon != null)
-                {
-                    item.WeaponTransform.parent.GetComponent<MeshRenderer>().enabled = false;
-                    item.InstantiatedWeapon = Instantiate(item.PurchasedWeapon, item.WeaponTransform.position, item.WeaponTransform.rotation);
-                    item.InstantiatedWeapon.transform.localScale = item.WeaponTransform.localScale;
-                }
-            }
-        }
+        LoadWeapons();
+       
     }
     #endregion
 
     #region Customization
     public void OpenCustomization()
     {
-        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().carData.weapons)
+        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().weaponHolders)
         {
             item.WeaponTransform.parent.gameObject.SetActive(true);
-            if (item.PurchasedWeapon != null)
+            if (item.EquippedWeapon != null)
             {
                 item.WeaponTransform.parent.GetComponent<MeshRenderer>().enabled = false;
                 if (item.InstantiatedWeapon == null)
                 {
-                    item.InstantiatedWeapon = Instantiate(item.PurchasedWeapon, item.WeaponTransform.position, item.WeaponTransform.rotation);
+                    item.InstantiatedWeapon = Instantiate(item.EquippedWeapon.WeaponPrefab, item.WeaponTransform.position, item.WeaponTransform.rotation);
                     item.InstantiatedWeapon.transform.localScale = item.WeaponTransform.localScale;
+                    DisplayWeaponData(item.InstantiatedWeapon, item.EquippedWeapon);
                 }
             }
 
@@ -311,15 +322,15 @@ public class GameManager : MonoBehaviour
             DestroyPrevious = false;
         }
         currentweaponHolder = selectedWeaponHolder;
-        if(currentCarPrefab.GetComponent<CarStatistics>().carData.weapons[selectedWeaponHolder].PurchasedWeapon)
+        if(currentCarPrefab.GetComponent<CarStatistics>().weaponHolders[selectedWeaponHolder].InstantiatedWeapon != null)
         {
-            Destroy(currentCarPrefab.GetComponent<CarStatistics>().carData.weapons[selectedWeaponHolder].InstantiatedWeapon);
+            Destroy(currentCarPrefab.GetComponent<CarStatistics>().weaponHolders[selectedWeaponHolder].InstantiatedWeapon);
         }
         CustomizeToWeaponShop(DestroyPrevious);
     }
     public void C_Next()
     {
-        if (currentWeaponIndex < currentCarPrefab.GetComponent<CarStatistics>().carData.weapons[currentweaponHolder].availableWeapons.Count -1)
+        if (currentWeaponIndex < currentCarPrefab.GetComponent<CarStatistics>().weaponHolders[currentweaponHolder].AvailableWeapons.Count -1)
         {
             Destroy(CurrentWeaponPrefab);
             currentWeaponIndex++;
@@ -331,7 +342,6 @@ public class GameManager : MonoBehaviour
             currentWeaponIndex = 0;
             InstantiateNewWeapon();
         }
-        DisplayWeaponData();
     }
     public void C_Previous()
     {
@@ -344,42 +354,184 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(CurrentWeaponPrefab);
-            currentWeaponIndex = currentCarPrefab.GetComponent<CarStatistics>().carData.weapons[currentweaponHolder].availableWeapons.Count -1;
+            currentWeaponIndex = currentCarPrefab.GetComponent<CarStatistics>().weaponHolders[currentweaponHolder].AvailableWeapons.Count -1;
             InstantiateNewWeapon();
         }
-        DisplayWeaponData();
     }
     void InstantiateNewWeapon()
     {
-        currentWeapon = currentCarPrefab.GetComponent<CarStatistics>().carData.weapons[currentweaponHolder];
-        GameObject Weapon = Instantiate(currentWeapon.availableWeapons[currentWeaponIndex], currentWeapon.WeaponTransform.position, currentWeapon.WeaponTransform.rotation);
+        currentWeapon = currentCarPrefab.GetComponent<CarStatistics>().weaponHolders[currentweaponHolder];
+        CurrentWeaponData = currentWeapon.AvailableWeapons[currentWeaponIndex];
+        GameObject Weapon = Instantiate(CurrentWeaponData.WeaponPrefab, currentWeapon.WeaponTransform.position, currentWeapon.WeaponTransform.rotation);
         Weapon.transform.localScale = currentWeapon.WeaponTransform.localScale;
         CurrentWeaponPrefab = Weapon;
+        DisplayWeaponData(Weapon, CurrentWeaponData);
+    }
+    public void PurchaseWeaponButton()
+    {
+        if(CurrentWeaponData.Purchased)
+        {
+            if(!CurrentWeaponData.Equipped)
+            {
+                EquipWeapon();
+                DisplayWeaponData(CurrentWeaponPrefab, CurrentWeaponData);
+                return;
+            }
+            UpgradeWeapon();
+            return;
+        }
+        else
+        {
+            PurchaseWeapon();
+        }
+    }
+    public void EquipWeapon()
+    {
+        foreach (var item in currentWeapon.AvailableWeapons)
+        {
+            item.Equipped = false;
+        }
+        CurrentWeaponData.Equipped = true;
+        currentWeapon.EquippedWeapon = CurrentWeaponData;
+        SaveWeapons();
     }
     public void PurchaseWeapon()
     {
-        if (AvailableMoney >= CurrentWeaponPrefab.GetComponent<WeaponData>().Cost)
+        if (AvailableMoney >= CurrentWeaponData.Cost[0])
         {
-            currentWeapon.PurchasedWeapon = DataManager.Instance.GetWeaponPrefabByName(CurrentWeaponPrefab.GetComponent<WeaponData>().Name);
-            WeaponShopToCustomize();
-            SaveData.SaveCarWeaponData(currentCarPrefab.GetComponent<CarStatistics>().carData, currentCar.ToString());
+            CurrentWeaponData.Purchased = true;
+            EquipWeapon();
+            currentWeapon.EquippedWeapon = CurrentWeaponData;
+            SaveWeapons();
             PurchaseComplete.SetActive(true);
-            PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + CurrentWeaponPrefab.GetComponent<WeaponData>().Cost.ToString();
+            PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + CurrentWeaponData.Cost[0].ToString();
             PriceShow.SetActive(true);
-            AvailableMoney -= CurrentWeaponPrefab.GetComponent<WeaponData>().Cost;
+            AvailableMoney -= CurrentWeaponData.Cost[0];
             DisplayMoney();
+            DisplayWeaponData(CurrentWeaponPrefab, CurrentWeaponData);
         }
         else
         {
             AudioSource.PlayClipAtPoint(NoMoney, transform.position);
         }
     }
-    public void DisplayWeaponData()
+    public void UpgradeWeapon()
     {
-        WeaponData data = currentWeapon.availableWeapons[currentWeaponIndex].GetComponent<WeaponData>();
-        WeaponNameUI.text = data.Name;
-        WeaponCostUI.text = "$" + data.Cost;
-        WeaponDescriptionUI.text = data.Description;
+        if (AvailableMoney >= CurrentWeaponData.Cost[CurrentWeaponData.Level])
+        {
+            PurchaseComplete.SetActive(true);
+            PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + CurrentWeaponData.Cost[CurrentWeaponData.Level].ToString();
+            PriceShow.SetActive(true);
+            AvailableMoney -= CurrentWeaponData.Cost[0];
+            DisplayMoney();
+            CurrentWeaponData.Level++;
+            DisplayWeaponData(CurrentWeaponPrefab, CurrentWeaponData);
+            SaveWeapons();
+        }
+    }
+
+    public void LoadWeapons()
+    {
+        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().weaponHolders)
+        {
+            for (int i = 0; i < item.AvailableWeapons.Count; i++)
+            {
+                WeaponData newData = Instantiate(item.AvailableWeapons[i]);
+                if (PlayerPrefs.HasKey((item.WeaponHolderIndex + " " + currentCar).ToString()))
+                {
+                    List<SavedWeapon> data = SaveData.LoadWeaponFile((item.WeaponHolderIndex + " " + currentCar).ToString());
+                    foreach (var savedWeapon in data)
+                    {
+                        if (savedWeapon.Name_ID == item.AvailableWeapons[i].Name_ID)
+                        {
+                            newData.Level = savedWeapon.Level;
+                            newData.Purchased = savedWeapon.Purchased;
+                            newData.Equipped = savedWeapon.Equipped;
+                        }
+                    }
+                    if (newData.Equipped)
+                    {
+                        item.EquippedWeapon = newData;
+                        item.WeaponTransform.parent.GetComponent<MeshRenderer>().enabled = false;
+                        item.InstantiatedWeapon = Instantiate(newData.WeaponPrefab, item.WeaponTransform.position, item.WeaponTransform.rotation);
+                        item.InstantiatedWeapon.transform.localScale = item.WeaponTransform.localScale;
+                        DisplayWeaponData(item.InstantiatedWeapon, newData);
+                    }
+                }
+                item.AvailableWeapons[i] = newData;
+            }
+        }
+    }
+    public void SaveWeapons()
+    {
+        foreach (var weaponHolder in currentCarPrefab.GetComponent<CarStatistics>().weaponHolders)
+        {
+            List<SavedWeapon> savedWeps = new();
+            foreach (var item in weaponHolder.AvailableWeapons)
+            {
+                SavedWeapon savedWeapon = new();
+                savedWeapon.Name_ID = item.Name_ID;
+                savedWeapon.Purchased = item.Purchased;
+                savedWeapon.Level = item.Level;
+                savedWeapon.Equipped = item.Equipped;
+                savedWeapon.WeaponHolderIndex = weaponHolder.WeaponHolderIndex;
+                savedWeps.Add(savedWeapon);
+            }
+            SaveData.SaveCarWeaponData(savedWeps, (weaponHolder.WeaponHolderIndex + " " + currentCarPrefab.GetComponent<CarStatistics>().GarrageSlot).ToString());
+        }
+    }
+    public void DisplayWeaponData(GameObject Prefab, WeaponData data)
+    {
+        Debug.Log(data.Level);
+        for (int i = 0; i < Prefab.transform.childCount; i++)
+        {
+            Prefab.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        if (!data.Equipped && data.Purchased)
+        {
+            WeaponPurchaseUI.text = "Equip";
+            purchasedButton.interactable = true;
+            WeaponNameUI.text = data.Name_ID;
+            weaponDpsBar.value = (data.DPS[data.Level] / 500f);
+            weaponArmorBar.value = (data.Armor[data.Level] / 500f);
+            WeaponSpecialUI.text = data.SpecialEffect[data.Level];
+            Prefab.transform.GetChild(data.Level).gameObject.SetActive(true);
+            return;
+        }
+        if (!data.Purchased)
+        {
+            WeaponPurchaseUI.text = "Purchase";
+            purchasedButton.interactable = true;
+            WeaponNameUI.text = data.Name_ID;
+            WeaponCostUI.text = ("$" + data.Cost[0]).ToString();
+            weaponDpsBar.value = (data.DPS[0] / 500f);
+            weaponArmorBar.value = (data.Armor[0] / 500f);
+            WeaponSpecialUI.text = data.SpecialEffect[0];
+            Prefab.transform.GetChild(0).gameObject.SetActive(true);
+            return;
+        }
+        if(data.Purchased && data.Level < 4)
+        {
+            WeaponPurchaseUI.text = "Upgrade";
+            purchasedButton.interactable = true;
+            WeaponNameUI.text = data.Name_ID;
+            WeaponCostUI.text = ("$" + data.Cost[data.Level+1]).ToString();
+            weaponDpsBar.value = (data.DPS[data.Level + 1] / 500f);
+            weaponArmorBar.value = (data.Armor[data.Level + 1] / 500f);
+            WeaponSpecialUI.text = data.SpecialEffect[data.Level + 1];
+            Prefab.transform.GetChild(data.Level + 1).gameObject.SetActive(true);
+        }
+        if (data.Purchased && data.Level == 4)
+        {
+            Prefab.transform.GetChild(data.Level).gameObject.SetActive(true);
+            purchasedButton.interactable = false;
+            WeaponNameUI.text = data.Name_ID;
+            WeaponCostUI.text = "Max Level";
+            WeaponPurchaseUI.text = "Max Level";
+            WeaponSpecialUI.text = data.SpecialEffect[data.Level - 1];
+        }
+
     }
 
     public void HoverColor(MaterialHolder mat)
@@ -413,7 +565,7 @@ public class GameManager : MonoBehaviour
                 currentCarPrefab.GetComponent<CarStatistics>().SavedColor = selectedmat.myMat.color;
                 OriginalColor = selectedmat.myMat.color;
                 SavedCar car = new();
-                car.CarIndex = carSlots[currentCar].Index;
+                car.CarIndex = carSlots[currentCar].GarrageSlot;
                 car.color = selectedmat.myMat.color;
                 SaveData.SaveCarData(car, currentCar.ToString());
                 PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + selectedmat.Cost.ToString();
@@ -477,7 +629,7 @@ public class GameManager : MonoBehaviour
         GarrageUIPanel.SetActive(false);
         MenuUIPanel.SetActive(true);
         if (currentCarPrefab)
-            foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().carData.weapons)
+            foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().weaponHolders)
             {
                 Destroy(item.InstantiatedWeapon);
             }
@@ -507,7 +659,7 @@ public class GameManager : MonoBehaviour
         GarrageUIPanel.SetActive(true);
         LeanTween.move(cam.gameObject, Cam_Pos_Select, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Select.rotation.eulerAngles, TransitionTime);
-        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().carData.weapons)
+        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().weaponHolders)
         {
             item.WeaponTransform.parent.gameObject.SetActive(false);
         }
@@ -518,16 +670,19 @@ public class GameManager : MonoBehaviour
         CustomizeUIPanel.SetActive(false);
         WeaponShopUIPanel.SetActive(true);
         currentWeaponIndex = 0;
-        if (currentWeapon !=null && Destroyprevious)
+        if (currentWeapon != null && Destroyprevious)
+        {
+            currentWeaponIndex = currentWeapon.EquippedWeapon.weaponIndex;
             Destroy(currentWeapon.InstantiatedWeapon);
+        }
         InstantiateNewWeapon();
-        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().carData.weapons)
+        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().weaponHolders)
         {
             item.WeaponTransform.parent.gameObject.SetActive(false);
         }
         LeanTween.move(cam.gameObject, currentWeapon.WeaponCamTransform.position, TransitionTime);
         LeanTween.rotate(cam.gameObject, currentWeapon.WeaponCamTransform.rotation.eulerAngles, TransitionTime);
-        DisplayWeaponData();
+        DisplayWeaponData(CurrentWeaponPrefab, CurrentWeaponData);
         cam.GetComponent<CameraCustomization>().enabled = false;
         Customization = false;
     }
@@ -546,7 +701,7 @@ public class GameManager : MonoBehaviour
         ColorShopUIPanel.SetActive(true);
         LeanTween.move(cam.gameObject, Cam_Pos_Select, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Select.rotation.eulerAngles, TransitionTime);
-        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().carData.weapons)
+        foreach (var item in currentCarPrefab.GetComponent<CarStatistics>().weaponHolders)
         {
             item.WeaponTransform.parent.gameObject.SetActive(false);
         }

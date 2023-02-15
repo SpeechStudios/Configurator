@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5475021258597752508}
-  - component: {fileID: 115912151037878544}
   - component: {fileID: 6943945033914213961}
   m_Layer: 6
   m_Name: Shocker
@@ -38,21 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &115912151037878544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6851134095912954342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a5d6aa65731964e907a84314cb3672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Shocker
-  Cost: 14000
-  Description: Shoots Electric Projectile That Slows Enemy 220 Damage
 --- !u!65 &6943945033914213961
 BoxCollider:
   m_ObjectHideFlags: 0

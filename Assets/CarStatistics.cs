@@ -6,27 +6,24 @@ using UnityEngine;
 public class CarStatistics : MonoBehaviour
 {
     public string Name;
-    public int Index;
+    public int GarrageSlot;
     public int Cost;
-    public string Description;
+    public string[] WeaponSlots;
+    public float Speed;
+    public float Armor;
     public Material mat;
     public Color SavedColor;
-    public CarData carData;
-}
-[System.Serializable]
-public class CarData
-{
-    public List<Weapon> weapons;
+    public List<WeaponHolder> weaponHolders;
 }
 
 [System.Serializable]
-public class Weapon
+public class WeaponHolder
 {
-    public List<GameObject> availableWeapons;
+    public List<WeaponData> AvailableWeapons;
     public Transform WeaponTransform;
     public Transform WeaponCamTransform;
-    public GameObject PurchasedWeapon;
+    [HideInInspector] public WeaponData EquippedWeapon;
     [HideInInspector] public GameObject InstantiatedWeapon;
-    public int WeaponSelectIndex;
+    public int WeaponHolderIndex;
 }
 

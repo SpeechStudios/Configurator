@@ -5,8 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public class SavedWeapon
 {
-    public string WeaponName;
-    public int WeaponSelectIndex;
+    public string Name_ID;
+    public int WeaponHolderIndex;
+    public bool Purchased;
+    public bool Equipped;
+    public int Level;
 }
 [System.Serializable]
 public class SavedCar
@@ -25,20 +28,9 @@ public class JsonableListWrapper<SavedWeapon>
 
 public class SaveData : MonoBehaviour
 {
-    public static void SaveCarWeaponData(CarData savedData, string slot)
+    public static void SaveCarWeaponData(List<SavedWeapon> savedData, string slot)
     {
-        List<SavedWeapon> weaponNames = new();
-        foreach (var item in savedData.weapons)
-        {
-            if (item.PurchasedWeapon)
-            {
-                SavedWeapon saveWep = new();
-                saveWep.WeaponName = item.PurchasedWeapon.GetComponent<WeaponData>().Name;
-                saveWep.WeaponSelectIndex = item.WeaponSelectIndex;
-                weaponNames.Add(saveWep);
-            }
-        }
-        string json = JsonUtility.ToJson(new JsonableListWrapper<SavedWeapon>(weaponNames));
+        string json = JsonUtility.ToJson(new JsonableListWrapper<SavedWeapon>(savedData));
         PlayerPrefs.SetString(slot, json);
     }
     public static List<SavedWeapon> LoadWeaponFile(string slot)
