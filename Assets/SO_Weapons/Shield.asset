@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name_ID: Shield
   WeaponPrefab: {fileID: 5668438201601198258, guid: 824e17d1c1176d648b21a8f6559718b7, type: 3}
-  weaponIndex: 6
+  weaponIndex: 0
   Cost: d007000094110000f82a0000c05d0000c8af0000
   DPS:
   - 20

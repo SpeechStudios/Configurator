@@ -29,20 +29,26 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI CarNameUI, CarCostUI;
     public GameObject[] CarDescriptionUI;
     public Slider carSpeedBar, carArmorBar;
+    public TextMeshProUGUI speedText, armorText;
+    public AudioClip PurchaseAudio;
 
     [Header("WeaponShop")]
     public GameObject WeaponShopUIPanel;
     public TextMeshProUGUI WeaponNameUI, WeaponCostUI, WeaponSpecialUI, WeaponPurchaseUI;
-    public Slider weaponDpsBar, weaponArmorBar;
+    public Slider weaponDpsBar, weaponArmorBar, weapondDpsUpgradeBar, weapondArmorUpgradeBar;
+    public TextMeshProUGUI weaponDPSText, weaponArmorText;
 
     [Header("Garage")]
     public GameObject GarrageUIPanel;
     public GameObject G_Next_PreviousPanel;
     public GameObject CustomizeButton, PurchaseCarButton;
     private GameObject currentCarPrefab;
-    public List<CarStatistics> carSlots;
+    [HideInInspector] public List<CarStatistics> carSlots;
 
     [Header("Customization")]
+    public Button purchasedButton;
+    public GameObject UpgradePanel;
+    public List<Image> upgradeFill;
     private GameObject CurrentWeaponPrefab;
     private WeaponData CurrentWeaponData;
     private WeaponHolder currentWeapon;
@@ -53,7 +59,7 @@ public class GameManager : MonoBehaviour
     private GameObject storredHighlight;
     private Color OriginalColor;
     private MaterialHolder selectedmat;
-    public Button purchasedButton;
+
 
 
 
@@ -164,6 +170,8 @@ public class GameManager : MonoBehaviour
         CarCostUI.text = "$" + data.Cost;
         carSpeedBar.value = data.Speed / 500;
         carArmorBar.value = data.Armor / 500;
+        speedText.text = data.Speed.ToString();
+        armorText.text = data.Armor.ToString();
 
         for (int i = 0; i < 3; i++)
         {
@@ -184,6 +192,7 @@ public class GameManager : MonoBehaviour
             carSlots.Add(cars[currentCar].GetComponent<CarStatistics>());
             PurchaseCompleteUI.SetActive(true);
             PurchaseComplete.SetActive(true);
+            GameObject priceShow = Instantiate(PriceShow);
             PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + cars[currentCar].GetComponent<CarStatistics>().Cost.ToString();
             PriceShow.SetActive(true);
             SavedCar car = new();
@@ -193,6 +202,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("CarData", carSlots.Count);
             AvailableMoney -= cars[currentCar].GetComponent<CarStatistics>().Cost;
             DisplayMoney();
+            AudioSource.PlayClipAtPoint(PurchaseAudio, transform.position);
         }
         else
         {
@@ -307,7 +317,6 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        cam.GetComponent<CameraCustomization>().enabled = true;
         Customization = true;
     }
     public void AquireNewWeapon(int selectedWeaponHolder)
@@ -325,6 +334,11 @@ public class GameManager : MonoBehaviour
         if(currentCarPrefab.GetComponent<CarStatistics>().weaponHolders[selectedWeaponHolder].InstantiatedWeapon != null)
         {
             Destroy(currentCarPrefab.GetComponent<CarStatistics>().weaponHolders[selectedWeaponHolder].InstantiatedWeapon);
+            currentWeaponIndex = currentCarPrefab.GetComponent<CarStatistics>().weaponHolders[selectedWeaponHolder].EquippedWeapon.weaponIndex;
+        }
+        else
+        {
+            currentWeaponIndex = 0;
         }
         CustomizeToWeaponShop(DestroyPrevious);
     }
@@ -409,6 +423,7 @@ public class GameManager : MonoBehaviour
             AvailableMoney -= CurrentWeaponData.Cost[0];
             DisplayMoney();
             DisplayWeaponData(CurrentWeaponPrefab, CurrentWeaponData);
+            AudioSource.PlayClipAtPoint(PurchaseAudio, transform.position, 0.3f);
         }
         else
         {
@@ -482,7 +497,6 @@ public class GameManager : MonoBehaviour
     }
     public void DisplayWeaponData(GameObject Prefab, WeaponData data)
     {
-        Debug.Log(data.Level);
         for (int i = 0; i < Prefab.transform.childCount; i++)
         {
             Prefab.transform.GetChild(i).gameObject.SetActive(false);
@@ -490,11 +504,17 @@ public class GameManager : MonoBehaviour
 
         if (!data.Equipped && data.Purchased)
         {
+            WeaponCostUI.text = "";
             WeaponPurchaseUI.text = "Equip";
+            UpgradePanel.SetActive(false);
             purchasedButton.interactable = true;
             WeaponNameUI.text = data.Name_ID;
             weaponDpsBar.value = (data.DPS[data.Level] / 500f);
             weaponArmorBar.value = (data.Armor[data.Level] / 500f);
+            weapondArmorUpgradeBar.value = 0;
+            weapondDpsUpgradeBar.value = 0;
+            weaponDPSText.text = data.DPS[data.Level].ToString();
+            weaponArmorText.text = data.Armor[data.Level].ToString();
             WeaponSpecialUI.text = data.SpecialEffect[data.Level];
             Prefab.transform.GetChild(data.Level).gameObject.SetActive(true);
             return;
@@ -502,34 +522,71 @@ public class GameManager : MonoBehaviour
         if (!data.Purchased)
         {
             WeaponPurchaseUI.text = "Purchase";
+            UpgradePanel.SetActive(true);
             purchasedButton.interactable = true;
             WeaponNameUI.text = data.Name_ID;
             WeaponCostUI.text = ("$" + data.Cost[0]).ToString();
             weaponDpsBar.value = (data.DPS[0] / 500f);
             weaponArmorBar.value = (data.Armor[0] / 500f);
+            weapondArmorUpgradeBar.value = 0;
+            weapondDpsUpgradeBar.value = 0;
+            weaponDPSText.text = data.DPS[data.Level].ToString();
+            weaponArmorText.text = data.Armor[data.Level].ToString();
             WeaponSpecialUI.text = data.SpecialEffect[0];
             Prefab.transform.GetChild(0).gameObject.SetActive(true);
+            foreach (var item in upgradeFill)
+            {
+                item.color = Color.grey;
+            }
+            upgradeFill[0].color = Color.red;
             return;
         }
-        if(data.Purchased && data.Level < 4)
+        if(data.Purchased && data.Level < 4 && WeaponShopUIPanel.activeInHierarchy)
         {
             WeaponPurchaseUI.text = "Upgrade";
+            UpgradePanel.SetActive(true);
             purchasedButton.interactable = true;
             WeaponNameUI.text = data.Name_ID;
-            WeaponCostUI.text = ("$" + data.Cost[data.Level+1]).ToString();
-            weaponDpsBar.value = (data.DPS[data.Level + 1] / 500f);
+            WeaponCostUI.text = ("$" + data.Cost[data.Level]).ToString();
+            weaponDpsBar.value = (data.DPS[data.Level] / 500f);
             weaponArmorBar.value = (data.Armor[data.Level + 1] / 500f);
+            weapondDpsUpgradeBar.value = (data.DPS[data.Level + 1] / 500f);
+            weapondArmorUpgradeBar.value = (data.Armor[data.Level + 1] / 500f);
+            weaponDPSText.text = data.DPS[data.Level] + " -> " + "<color=green> " + data.DPS[data.Level + 1] + "</color>";
+            weaponArmorText.text = data.Armor[data.Level] + " -> " + "<color=green> " + data.Armor[data.Level + 1] + "</color>";
             WeaponSpecialUI.text = data.SpecialEffect[data.Level + 1];
             Prefab.transform.GetChild(data.Level + 1).gameObject.SetActive(true);
+            foreach (var item in upgradeFill)
+            {
+                item.color = Color.grey;
+            }
+            for (int i = 0; i < data.Level+1; i++)
+            {
+                upgradeFill[i].color = Color.green;
+            }
+            upgradeFill[data.Level+1].color = Color.red;
+        }
+        if(data.Equipped && !WeaponShopUIPanel.activeInHierarchy)
+        {
+            Prefab.transform.GetChild(data.Level).gameObject.SetActive(true);
         }
         if (data.Purchased && data.Level == 4)
         {
             Prefab.transform.GetChild(data.Level).gameObject.SetActive(true);
+            UpgradePanel.SetActive(true);
             purchasedButton.interactable = false;
             WeaponNameUI.text = data.Name_ID;
             WeaponCostUI.text = "Max Level";
             WeaponPurchaseUI.text = "Max Level";
-            WeaponSpecialUI.text = data.SpecialEffect[data.Level - 1];
+            weaponDPSText.text = data.DPS[data.Level].ToString();
+            weaponArmorText.text = data.Armor[data.Level].ToString();
+            WeaponSpecialUI.text = data.SpecialEffect[data.Level];
+            weapondArmorUpgradeBar.value = 0;
+            weapondDpsUpgradeBar.value = 0;
+            foreach (var item in upgradeFill)
+            {
+                item.color = Color.green;
+            }
         }
 
     }
@@ -591,7 +648,6 @@ public class GameManager : MonoBehaviour
         LeanTween.move(cam.gameObject, Cam_Pos_Select, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Select.rotation.eulerAngles, TransitionTime);
         DisplayCarData();
-        cam.GetComponent<CameraCustomization>().enabled = true;
     }
     public void MenuToGarrage()
     {
@@ -601,7 +657,6 @@ public class GameManager : MonoBehaviour
         LeanTween.move(cam.gameObject, Cam_Pos_Select, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Select.rotation.eulerAngles, TransitionTime);
         OpenGarrage(currentCar);
-        cam.GetComponent<CameraCustomization>().enabled = true;
     }
     public void CarShopToMenu()
     {
@@ -610,7 +665,6 @@ public class GameManager : MonoBehaviour
         cars[currentCar].SetActive(false);
         LeanTween.move(cam.gameObject, Cam_Pos_Main, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Main.rotation.eulerAngles, TransitionTime);
-        cam.GetComponent<CameraCustomization>().enabled = false;
     }
     public void CarShopToCustomize()
     {
@@ -636,7 +690,6 @@ public class GameManager : MonoBehaviour
         Destroy(currentCarPrefab);
         LeanTween.move(cam.gameObject, Cam_Pos_Main, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Main.rotation.eulerAngles, TransitionTime);
-        cam.GetComponent<CameraCustomization>().enabled = false;
     }
     public void GarageToCustomize()
     {
@@ -669,10 +722,8 @@ public class GameManager : MonoBehaviour
     {
         CustomizeUIPanel.SetActive(false);
         WeaponShopUIPanel.SetActive(true);
-        currentWeaponIndex = 0;
         if (currentWeapon != null && Destroyprevious)
         {
-            currentWeaponIndex = currentWeapon.EquippedWeapon.weaponIndex;
             Destroy(currentWeapon.InstantiatedWeapon);
         }
         InstantiateNewWeapon();
@@ -693,6 +744,7 @@ public class GameManager : MonoBehaviour
         LeanTween.move(cam.gameObject, Cam_Pos_Customize, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Customize.rotation.eulerAngles, TransitionTime);
         Destroy(CurrentWeaponPrefab);
+        cam.GetComponent<CameraCustomization>().enabled = true;
         OpenCustomization();
     }
     public void CustomizeToColorShop()

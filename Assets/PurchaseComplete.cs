@@ -10,9 +10,10 @@ public class PurchaseComplete : MonoBehaviour
     void OnEnable()
     {
         startPos = transform.position;
+        StopCoroutine("UpAndFade");
         StartCoroutine(nameof(UpAndFade));
     }
-    IEnumerator UpAndFade()
+    public IEnumerator UpAndFade()
     {
         gameObject.SetActive(true);
         for (float f = 1; f > -0.05; f-=0.05f)
@@ -28,7 +29,6 @@ public class PurchaseComplete : MonoBehaviour
         Color d = GetComponent<TextMeshProUGUI>().color;
         d.a = 1;
         GetComponent<TextMeshProUGUI>().color = d;
-
     }
 
 }
