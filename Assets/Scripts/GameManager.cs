@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     public Button purchasedButton;
     public GameObject UpgradePanel;
     public List<Image> upgradeFill;
+    public AudioClip MaxLevel;
     private GameObject CurrentWeaponPrefab;
     private WeaponData CurrentWeaponData;
     private WeaponHolder currentWeapon;
@@ -448,12 +449,16 @@ public class GameManager : MonoBehaviour
             PC.transform.SetParent(PurchaseCompletePosition, false);
             GameObject PS = Instantiate(PriceShow, priceShowPosition);
             PS.transform.SetParent(priceShowPosition, false);
-            PS.GetComponent<TextMeshProUGUI>().text = "-$" + CurrentWeaponData.Cost[CurrentWeaponData.Level].ToString();
-            AvailableMoney -= CurrentWeaponData.Cost[0];
+            PS.GetComponent<TextMeshProUGUI>().text = "-$" + CurrentWeaponData.Cost[CurrentWeaponData.Level+1].ToString();
+            AvailableMoney -= CurrentWeaponData.Cost[CurrentWeaponData.Level+1];
             DisplayMoney();
             CurrentWeaponData.Level++;
             DisplayWeaponData(CurrentWeaponPrefab, CurrentWeaponData);
             SaveWeapons();
+            if(CurrentWeaponData.Level == 4)
+            {
+                AudioSource.PlayClipAtPoint(MaxLevel, transform.position);
+            }
 
         }
     }
@@ -506,7 +511,7 @@ public class GameManager : MonoBehaviour
                 savedWeapon.WeaponHolderIndex = weaponHolder.WeaponHolderIndex;
                 savedWeps.Add(savedWeapon);
             }
-            SaveData.SaveCarWeaponData(savedWeps, (weaponHolder.WeaponHolderIndex + " " + currentCarPrefab.GetComponent<CarStatistics>().GarrageSlot).ToString());
+            SaveData.SaveCarWeaponData(savedWeps, (weaponHolder.WeaponHolderIndex + " " + currentCar).ToString());
         }
     }
     public void DisplayWeaponData(GameObject Prefab, WeaponData data)
@@ -561,7 +566,7 @@ public class GameManager : MonoBehaviour
             UpgradePanel.SetActive(true);
             purchasedButton.interactable = true;
             WeaponNameUI.text = data.Name_ID;
-            WeaponCostUI.text = ("$" + data.Cost[data.Level]).ToString();
+            WeaponCostUI.text = ("$" + data.Cost[data.Level+1]).ToString();
             weaponDpsBar.value = (data.DPS[data.Level] / 500f);
             weaponArmorBar.value = (data.Armor[data.Level + 1] / 500f);
             weapondDpsUpgradeBar.value = (data.DPS[data.Level + 1] / 500f);
@@ -592,6 +597,8 @@ public class GameManager : MonoBehaviour
             WeaponNameUI.text = data.Name_ID;
             WeaponCostUI.text = "Max Level";
             WeaponPurchaseUI.text = "Max Level";
+            weaponDpsBar.value = (data.DPS[data.Level] / 500f);
+            weaponArmorBar.value = (data.Armor[data.Level] / 500f);
             weaponDPSText.text = data.DPS[data.Level].ToString();
             weaponArmorText.text = data.Armor[data.Level].ToString();
             WeaponSpecialUI.text = data.SpecialEffect[data.Level];
