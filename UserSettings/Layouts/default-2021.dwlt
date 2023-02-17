@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 8
-    y: 51
-    width: 1904
-    height: 973
+    x: 0
+    y: 43
+    width: 1920
+    height: 989
   m_ShowMode: 4
-  m_Title: Git for Unity
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
-  m_Maximized: 0
+  m_Maximized: 1
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -43,12 +43,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1904
-    height: 923
+    width: 1920
+    height: 939
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 64
+  controlID: 21
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -59,23 +59,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Window
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1454
+    x: 1466
     y: 0
-    width: 450
-    height: 923
-  m_MinSize: {x: 101, y: 121}
+    width: 454
+    height: 939
+  m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 12}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
   - {fileID: 12}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -93,8 +93,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 360
-    height: 547
+    width: 354
+    height: 665
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
@@ -112,23 +112,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 547
-    width: 1454
-    height: 376
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 18}
+    y: 665
+    width: 1466
+    height: 274
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
   - {fileID: 18}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -149,8 +149,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1904
-    height: 973
+    width: 1920
+    height: 989
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -174,7 +174,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1904
+    width: 1920
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -195,8 +195,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 953
-    width: 1904
+    y: 969
+    width: 1920
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -219,12 +219,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1454
-    height: 923
+    width: 1466
+    height: 939
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 65
+  controlID: 22
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,12 +244,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1454
-    height: 547
+    width: 1466
+    height: 665
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 66
+  controlID: 23
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -265,10 +265,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 360
+    x: 354
     y: 0
-    width: 1094
-    height: 547
+    width: 1112
+    height: 665
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 16}
@@ -297,10 +297,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1462
-    y: 81
-    width: 449
-    height: 902
+    x: 1466
+    y: 73
+    width: 453
+    height: 918
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -311,8 +311,8 @@ MonoBehaviour:
   currentBranchAndRemoteHasUpdate: 0
   currentTrackingStatusHasUpdate: 0
   currentStatusEntriesHasUpdate: 0
-  repositoryProgressHasUpdate: 0
-  appManagerProgressHasUpdate: 0
+  repositoryProgressHasUpdate: 1
+  appManagerProgressHasUpdate: 1
   changeTab: 3
   activeTab: 3
   initProjectView:
@@ -497,19 +497,1208 @@ MonoBehaviour:
       tracking: '[None]'
   changesView:
     currentBranchHasUpdate: 0
-    currentStatusEntriesHasUpdate: 0
-    currentLocksHasUpdate: 0
+    currentStatusEntriesHasUpdate: 1
+    currentLocksHasUpdate: 1
     commitBody: 
     commitMessage: 
     currentBranch: master
     treeScroll: {x: 0, y: 0}
     treeChanges:
       assets:
-        keys: []
-        values: []
+        keys:
+        - 00000000000000001000000000000000
+        - f815a2d9061366e409d9e491adabf98b
+        - 9263f5bce2fb65342b8a8c9c267406e9
+        - 17c469d5fdb36534e8792ebcce465153
+        - 79db458bb08a7bd429a7ac2c165311d8
+        - cbb7efdfd7453614fb5dd9320676b04d
+        - 7d90345e21edacd4d89a0e4565ca8d4b
+        - b39113234241a4648a24a74b25045977
+        - 3be91f82d01f86f4995f55a928654bd8
+        - 8abf9ea457f60cf408d8428bb11939de
+        - 9a25773bb884fa74aae40d6abcf307db
+        - f42ee6c61e2b5a049b588a485b2f267f
+        - 1a39652b55ef6dc4c894ece2783c58c7
+        - 316224186e8ae6543990a05f4dc13981
+        - 5c224246aabdf2147b24b920563d9f85
+        - ff89099d49f4dfb46981d1be1b34544d
+        - c0191f5eddde47443a5bfd777e6d37b6
+        - b049660b860c8334a852b54855bce599
+        - 2b9be05b0a886f147b9ac9a64d6a22fe
+        - 33bdb03bbd786bc4baf15e330dfe61d1
+        - ec32ee6300414d44e8296123359dc4be
+        - 016305ef1931b314795872a33dd5286d
+        - 0efc5db2ae078c547a98799ad6484ba8
+        - 6c4f0df741bf4af4b809f0839ddcc085
+        - a1f7abf0dd920704dab30efe19ec8631
+        - 61ad195ee0adbcf43a81943f1745cb23
+        - 29549571fcd6d7a46be1eff7ac4717e9
+        - 38218e45bd4e4734a821fc90aff02c90
+        - b0d5695b94b97c74aa20903c7b05b65e
+        - a767a1291470e3d41a61b5d1fb8a088b
+        - a5a03e9586db10a4c865bbeb7e7502ab
+        - bc9fe238fd218bf46bd945afd1cb7648
+        - d5997c61fc2d1294794e4ca1f1ecf948
+        - 475d2056b8c61ef41a187e4be2627abc
+        - 42587231bed1f6d40a27f64d79a70f93
+        - 2893e3c9a5055f946899fc862124f5e8
+        - 6ea315d0fd7389c41b19996891e99ae3
+        - 9fc0d4010bbf28b4594072e72b8655ab
+        - 95d74e2ecbbe92945b06c44e2cee5e95
+        - bf58d02c1c2e6da4da5b6fc194c00979
+        - 9999a19406470d0488dee51c3f84a18c
+        - 444097aa356b1414aa8ed0df2fca3309
+        - e7f9695c6131e874eaa8cdcdc7b4cd79
+        - f54d1bd14bd3ca042bd867b519fee8cc
+        - 243e06394e614e5d99fab26083b707fa
+        - 731f1baa9d144a9897cb1d341c2092b8
+        - 2e498d1c8094910479dc3e1b768306a4
+        - 8f586378b4e144a9851e7b34d9b748ee
+        values:
+        - path: Assets
+          label: Assets
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\CameraCustomization.cs
+          label: CameraCustomization.cs
+          level: 1
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\CameraCustomization.cs
+            fullPath: C:\Users\Yonathan\Configurator\Assets\CameraCustomization.cs
+            projectPath: Assets\CameraCustomization.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Cars SDF.asset
+          label: Cars SDF.asset
+          level: 1
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Cars SDF.asset
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Cars SDF.asset
+            projectPath: Assets\Cars SDF.asset
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Cars.ttf
+          label: Cars.ttf
+          level: 1
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Cars.ttf
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Cars.ttf
+            projectPath: Assets\Cars.ttf
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Customized Weapons - Low poly
+          label: Customized Weapons - Low poly
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Customized Weapons - Low poly\Material
+          label: Material
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Customized Weapons - Low poly\Material\Material.mat
+          label: Material.mat
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Customized Weapons - Low poly\Material\Material.mat
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Customized Weapons -
+              Low poly\Material\Material.mat
+            projectPath: Assets\Customized Weapons - Low poly\Material\Material.mat
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Designer SDF.asset
+          label: Designer SDF.asset
+          level: 1
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Designer SDF.asset
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Designer SDF.asset
+            projectPath: Assets\Designer SDF.asset
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Designer.otf
+          label: Designer.otf
+          level: 1
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Designer.otf
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Designer.otf
+            projectPath: Assets\Designer.otf
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines
+          label: Engines
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Engines\Engines SFX
+          label: Engines SFX
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Engines\Engines SFX\Engine_01.wav
+          label: Engine_01.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Engines SFX\Engine_01.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_01.wav
+            projectPath: Assets\Engines\Engines SFX\Engine_01.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Engines SFX\Engine_02.wav
+          label: Engine_02.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Engines SFX\Engine_02.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_02.wav
+            projectPath: Assets\Engines\Engines SFX\Engine_02.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Engines SFX\Engine_03.wav
+          label: Engine_03.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Engines SFX\Engine_03.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_03.wav
+            projectPath: Assets\Engines\Engines SFX\Engine_03.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Engines SFX\Engine_04.wav
+          label: Engine_04.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Engines SFX\Engine_04.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_04.wav
+            projectPath: Assets\Engines\Engines SFX\Engine_04.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Engines SFX\Engine_05.wav
+          label: Engine_05.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Engines SFX\Engine_05.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_05.wav
+            projectPath: Assets\Engines\Engines SFX\Engine_05.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Engines SFX\Engine_06.wav
+          label: Engine_06.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Engines SFX\Engine_06.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_06.wav
+            projectPath: Assets\Engines\Engines SFX\Engine_06.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Engines SFX\Engine_07.wav
+          label: Engine_07.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Engines SFX\Engine_07.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_07.wav
+            projectPath: Assets\Engines\Engines SFX\Engine_07.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Engines SFX\Engine_08.wav
+          label: Engine_08.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Engines SFX\Engine_08.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_08.wav
+            projectPath: Assets\Engines\Engines SFX\Engine_08.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Misc SFX
+          label: Misc SFX
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Engines\Misc SFX\Carn Horn 1.wav
+          label: Carn Horn 1.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Misc SFX\Carn Horn 1.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Carn
+              Horn 1.wav
+            projectPath: Assets\Engines\Misc SFX\Carn Horn 1.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Misc SFX\Carn Horn 2.wav
+          label: Carn Horn 2.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Misc SFX\Carn Horn 2.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Carn
+              Horn 2.wav
+            projectPath: Assets\Engines\Misc SFX\Carn Horn 2.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Misc SFX\Pounding.wav
+          label: Pounding.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Misc SFX\Pounding.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Pounding.wav
+            projectPath: Assets\Engines\Misc SFX\Pounding.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Misc SFX\Screwdriver.wav
+          label: Screwdriver.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Misc SFX\Screwdriver.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Screwdriver.wav
+            projectPath: Assets\Engines\Misc SFX\Screwdriver.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Misc SFX\Smashed_Window_01.wav
+          label: Smashed_Window_01.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Misc SFX\Smashed_Window_01.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Smashed_Window_01.wav
+            projectPath: Assets\Engines\Misc SFX\Smashed_Window_01.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Misc SFX\Smashed_Window_02.wav
+          label: Smashed_Window_02.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Misc SFX\Smashed_Window_02.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Smashed_Window_02.wav
+            projectPath: Assets\Engines\Misc SFX\Smashed_Window_02.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Engines\Misc SFX\Wrench.wav
+          label: Wrench.wav
+          level: 3
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Engines\Misc SFX\Wrench.wav
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Wrench.wav
+            projectPath: Assets\Engines\Misc SFX\Wrench.wav
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\GameManager.cs
+          label: GameManager.cs
+          level: 1
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\GameManager.cs
+            fullPath: C:\Users\Yonathan\Configurator\Assets\GameManager.cs
+            projectPath: Assets\GameManager.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\LerpPitch.cs
+          label: LerpPitch.cs
+          level: 1
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\LerpPitch.cs
+            fullPath: C:\Users\Yonathan\Configurator\Assets\LerpPitch.cs
+            projectPath: Assets\LerpPitch.cs
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Materials
+          label: Materials
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Materials\Add.mat
+          label: Add.mat
+          level: 2
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Materials\Add.mat
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Materials\Add.mat
+            projectPath: Assets\Materials\Add.mat
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Materials\HighLight.mat
+          label: HighLight.mat
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Materials\HighLight.mat
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Materials\HighLight.mat
+            projectPath: Assets\Materials\HighLight.mat
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Plus.png
+          label: Plus.png
+          level: 1
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Plus.png
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Plus.png
+            projectPath: Assets\Plus.png
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\PriceShow.prefab
+          label: PriceShow.prefab
+          level: 1
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\PriceShow.prefab
+            fullPath: C:\Users\Yonathan\Configurator\Assets\PriceShow.prefab
+            projectPath: Assets\PriceShow.prefab
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\Purchase Complete.prefab
+          label: Purchase Complete.prefab
+          level: 1
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Purchase Complete.prefab
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Purchase Complete.prefab
+            projectPath: Assets\Purchase Complete.prefab
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\PurchaseComplete.cs
+          label: PurchaseComplete.cs
+          level: 1
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\PurchaseComplete.cs
+            fullPath: C:\Users\Yonathan\Configurator\Assets\PurchaseComplete.cs
+            projectPath: Assets\PurchaseComplete.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes\SampleScene.unity
+          label: SampleScene.unity
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scenes\SampleScene.unity
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Scenes\SampleScene.unity
+            projectPath: Assets\Scenes\SampleScene.unity
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\Scenes\SampleScene_Profiles
+          label: SampleScene_Profiles
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes\SampleScene_Profiles\PostProcessing Profile.asset
+          label: PostProcessing Profile.asset
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\Scenes\SampleScene_Profiles\PostProcessing Profile.asset
+            fullPath: C:\Users\Yonathan\Configurator\Assets\Scenes\SampleScene_Profiles\PostProcessing
+              Profile.asset
+            projectPath: Assets\Scenes\SampleScene_Profiles\PostProcessing Profile.asset
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\ScreenShake.cs
+          label: ScreenShake.cs
+          level: 1
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\ScreenShake.cs
+            fullPath: C:\Users\Yonathan\Configurator\Assets\ScreenShake.cs
+            projectPath: Assets\ScreenShake.cs
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\squareiMM SDF.asset
+          label: squareiMM SDF.asset
+          level: 1
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\squareiMM SDF.asset
+            fullPath: C:\Users\Yonathan\Configurator\Assets\squareiMM SDF.asset
+            projectPath: Assets\squareiMM SDF.asset
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\squareiMM.ttf
+          label: squareiMM.ttf
+          level: 1
+          isFolder: 0
+          isContainer: 1
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\squareiMM.ttf
+            fullPath: C:\Users\Yonathan\Configurator\Assets\squareiMM.ttf
+            projectPath: Assets\squareiMM.ttf
+            originalPath: 
+            indexStatus: 1
+            workTreeStatus: 1
+        - path: Assets\TextMesh Pro
+          label: TextMesh Pro
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\TextMesh Pro\Resources
+          label: Resources
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\TextMesh Pro\Resources\Fonts & Materials
+          label: Fonts & Materials
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF
+            - Fallback.asset
+          label: LiberationSans SDF - Fallback.asset
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
+              SDF - Fallback.asset
+            fullPath: C:\Users\Yonathan\Configurator\Assets\TextMesh Pro\Resources\Fonts
+              & Materials\LiberationSans SDF - Fallback.asset
+            projectPath: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
+              SDF - Fallback.asset
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF.asset
+          label: LiberationSans SDF.asset
+          level: 4
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
+              SDF.asset
+            fullPath: C:\Users\Yonathan\Configurator\Assets\TextMesh Pro\Resources\Fonts
+              & Materials\LiberationSans SDF.asset
+            projectPath: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
+              SDF.asset
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
       folders:
-        keys: []
-        values: []
+        keys:
+        - Assets
+        - Assets\Customized Weapons - Low poly
+        - Assets\Customized Weapons - Low poly\Material
+        - Assets\Engines
+        - Assets\Engines\Engines SFX
+        - Assets\Engines\Misc SFX
+        - Assets\Materials
+        - Assets\Scenes
+        - Assets\Scenes\SampleScene_Profiles
+        - Assets\TextMesh Pro
+        - Assets\TextMesh Pro\Resources
+        - Assets\TextMesh Pro\Resources\Fonts & Materials
+        - UserSettings
+        - UserSettings\Layouts
+        values:
+        - path: Assets
+          label: Assets
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Customized Weapons - Low poly
+          label: Customized Weapons - Low poly
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Customized Weapons - Low poly\Material
+          label: Material
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Engines
+          label: Engines
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Engines\Engines SFX
+          label: Engines SFX
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Engines\Misc SFX
+          label: Misc SFX
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Materials
+          label: Materials
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes
+          label: Scenes
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\Scenes\SampleScene_Profiles
+          label: SampleScene_Profiles
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\TextMesh Pro
+          label: TextMesh Pro
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\TextMesh Pro\Resources
+          label: Resources
+          level: 2
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: Assets\TextMesh Pro\Resources\Fonts & Materials
+          label: Fonts & Materials
+          level: 3
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: UserSettings
+          label: UserSettings
+          level: 0
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
+        - path: UserSettings\Layouts
+          label: Layouts
+          level: 1
+          isFolder: 1
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: 
+            fullPath: 
+            projectPath: 
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 0
       checkedFileNodes:
         keys: []
         values: []
@@ -538,6 +1727,1476 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
+      - path: Assets
+        label: Assets
+        level: 0
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\CameraCustomization.cs
+        label: CameraCustomization.cs
+        level: 1
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\CameraCustomization.cs
+          fullPath: C:\Users\Yonathan\Configurator\Assets\CameraCustomization.cs
+          projectPath: Assets\CameraCustomization.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Cars SDF.asset
+        label: Cars SDF.asset
+        level: 1
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Cars SDF.asset
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Cars SDF.asset
+          projectPath: Assets\Cars SDF.asset
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Cars SDF.asset.meta
+        label: Cars SDF.asset.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Cars SDF.asset.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Cars SDF.asset.meta
+          projectPath: Assets\Cars SDF.asset.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Cars.ttf
+        label: Cars.ttf
+        level: 1
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Cars.ttf
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Cars.ttf
+          projectPath: Assets\Cars.ttf
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Cars.ttf.meta
+        label: Cars.ttf.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Cars.ttf.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Cars.ttf.meta
+          projectPath: Assets\Cars.ttf.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Customized Weapons - Low poly
+        label: Customized Weapons - Low poly
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Customized Weapons - Low poly\Material
+        label: Material
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Customized Weapons - Low poly\Material\Material.mat
+        label: Material.mat
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Customized Weapons - Low poly\Material\Material.mat
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Customized Weapons - Low
+            poly\Material\Material.mat
+          projectPath: Assets\Customized Weapons - Low poly\Material\Material.mat
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Designer SDF.asset
+        label: Designer SDF.asset
+        level: 1
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Designer SDF.asset
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Designer SDF.asset
+          projectPath: Assets\Designer SDF.asset
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Designer SDF.asset.meta
+        label: Designer SDF.asset.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Designer SDF.asset.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Designer SDF.asset.meta
+          projectPath: Assets\Designer SDF.asset.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Designer.otf
+        label: Designer.otf
+        level: 1
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Designer.otf
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Designer.otf
+          projectPath: Assets\Designer.otf
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Designer.otf.meta
+        label: Designer.otf.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Designer.otf.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Designer.otf.meta
+          projectPath: Assets\Designer.otf.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines.meta
+        label: Engines.meta
+        level: 1
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines.meta
+          projectPath: Assets\Engines.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines
+        label: Engines
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Engines\Engines SFX.meta
+        label: Engines SFX.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX.meta
+          projectPath: Assets\Engines\Engines SFX.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX
+        label: Engines SFX
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Engines\Engines SFX\Engine_01.wav
+        label: Engine_01.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_01.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_01.wav
+          projectPath: Assets\Engines\Engines SFX\Engine_01.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_01.wav.meta
+        label: Engine_01.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_01.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_01.wav.meta
+          projectPath: Assets\Engines\Engines SFX\Engine_01.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_02.wav
+        label: Engine_02.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_02.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_02.wav
+          projectPath: Assets\Engines\Engines SFX\Engine_02.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_02.wav.meta
+        label: Engine_02.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_02.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_02.wav.meta
+          projectPath: Assets\Engines\Engines SFX\Engine_02.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_03.wav
+        label: Engine_03.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_03.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_03.wav
+          projectPath: Assets\Engines\Engines SFX\Engine_03.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_03.wav.meta
+        label: Engine_03.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_03.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_03.wav.meta
+          projectPath: Assets\Engines\Engines SFX\Engine_03.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_04.wav
+        label: Engine_04.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_04.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_04.wav
+          projectPath: Assets\Engines\Engines SFX\Engine_04.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_04.wav.meta
+        label: Engine_04.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_04.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_04.wav.meta
+          projectPath: Assets\Engines\Engines SFX\Engine_04.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_05.wav
+        label: Engine_05.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_05.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_05.wav
+          projectPath: Assets\Engines\Engines SFX\Engine_05.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_05.wav.meta
+        label: Engine_05.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_05.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_05.wav.meta
+          projectPath: Assets\Engines\Engines SFX\Engine_05.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_06.wav
+        label: Engine_06.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_06.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_06.wav
+          projectPath: Assets\Engines\Engines SFX\Engine_06.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_06.wav.meta
+        label: Engine_06.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_06.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_06.wav.meta
+          projectPath: Assets\Engines\Engines SFX\Engine_06.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_07.wav
+        label: Engine_07.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_07.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_07.wav
+          projectPath: Assets\Engines\Engines SFX\Engine_07.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_07.wav.meta
+        label: Engine_07.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_07.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_07.wav.meta
+          projectPath: Assets\Engines\Engines SFX\Engine_07.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_08.wav
+        label: Engine_08.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_08.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_08.wav
+          projectPath: Assets\Engines\Engines SFX\Engine_08.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Engines SFX\Engine_08.wav.meta
+        label: Engine_08.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Engines SFX\Engine_08.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_08.wav.meta
+          projectPath: Assets\Engines\Engines SFX\Engine_08.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX.meta
+        label: Misc SFX.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX.meta
+          projectPath: Assets\Engines\Misc SFX.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX
+        label: Misc SFX
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Engines\Misc SFX\Carn Horn 1.wav
+        label: Carn Horn 1.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Carn Horn 1.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Carn Horn
+            1.wav
+          projectPath: Assets\Engines\Misc SFX\Carn Horn 1.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Carn Horn 1.wav.meta
+        label: Carn Horn 1.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Carn Horn 1.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Carn Horn
+            1.wav.meta
+          projectPath: Assets\Engines\Misc SFX\Carn Horn 1.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Carn Horn 2.wav
+        label: Carn Horn 2.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Carn Horn 2.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Carn Horn
+            2.wav
+          projectPath: Assets\Engines\Misc SFX\Carn Horn 2.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Carn Horn 2.wav.meta
+        label: Carn Horn 2.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Carn Horn 2.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Carn Horn
+            2.wav.meta
+          projectPath: Assets\Engines\Misc SFX\Carn Horn 2.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Pounding.wav
+        label: Pounding.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Pounding.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Pounding.wav
+          projectPath: Assets\Engines\Misc SFX\Pounding.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Pounding.wav.meta
+        label: Pounding.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Pounding.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Pounding.wav.meta
+          projectPath: Assets\Engines\Misc SFX\Pounding.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Screwdriver.wav
+        label: Screwdriver.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Screwdriver.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Screwdriver.wav
+          projectPath: Assets\Engines\Misc SFX\Screwdriver.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Screwdriver.wav.meta
+        label: Screwdriver.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Screwdriver.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Screwdriver.wav.meta
+          projectPath: Assets\Engines\Misc SFX\Screwdriver.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Smashed_Window_01.wav
+        label: Smashed_Window_01.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Smashed_Window_01.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Smashed_Window_01.wav
+          projectPath: Assets\Engines\Misc SFX\Smashed_Window_01.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Smashed_Window_01.wav.meta
+        label: Smashed_Window_01.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Smashed_Window_01.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Smashed_Window_01.wav.meta
+          projectPath: Assets\Engines\Misc SFX\Smashed_Window_01.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Smashed_Window_02.wav
+        label: Smashed_Window_02.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Smashed_Window_02.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Smashed_Window_02.wav
+          projectPath: Assets\Engines\Misc SFX\Smashed_Window_02.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Smashed_Window_02.wav.meta
+        label: Smashed_Window_02.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Smashed_Window_02.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Smashed_Window_02.wav.meta
+          projectPath: Assets\Engines\Misc SFX\Smashed_Window_02.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Wrench.wav
+        label: Wrench.wav
+        level: 3
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Wrench.wav
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Wrench.wav
+          projectPath: Assets\Engines\Misc SFX\Wrench.wav
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Engines\Misc SFX\Wrench.wav.meta
+        label: Wrench.wav.meta
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Engines\Misc SFX\Wrench.wav.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Wrench.wav.meta
+          projectPath: Assets\Engines\Misc SFX\Wrench.wav.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\GameManager.cs
+        label: GameManager.cs
+        level: 1
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\GameManager.cs
+          fullPath: C:\Users\Yonathan\Configurator\Assets\GameManager.cs
+          projectPath: Assets\GameManager.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\LerpPitch.cs
+        label: LerpPitch.cs
+        level: 1
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\LerpPitch.cs
+          fullPath: C:\Users\Yonathan\Configurator\Assets\LerpPitch.cs
+          projectPath: Assets\LerpPitch.cs
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\LerpPitch.cs.meta
+        label: LerpPitch.cs.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\LerpPitch.cs.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\LerpPitch.cs.meta
+          projectPath: Assets\LerpPitch.cs.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Materials
+        label: Materials
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Materials\Add.mat
+        label: Add.mat
+        level: 2
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Materials\Add.mat
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Materials\Add.mat
+          projectPath: Assets\Materials\Add.mat
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Materials\Add.mat.meta
+        label: Add.mat.meta
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Materials\Add.mat.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Materials\Add.mat.meta
+          projectPath: Assets\Materials\Add.mat.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Materials\HighLight.mat
+        label: HighLight.mat
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Materials\HighLight.mat
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Materials\HighLight.mat
+          projectPath: Assets\Materials\HighLight.mat
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Plus.png
+        label: Plus.png
+        level: 1
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Plus.png
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Plus.png
+          projectPath: Assets\Plus.png
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Plus.png.meta
+        label: Plus.png.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Plus.png.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Plus.png.meta
+          projectPath: Assets\Plus.png.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\PriceShow.prefab
+        label: PriceShow.prefab
+        level: 1
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\PriceShow.prefab
+          fullPath: C:\Users\Yonathan\Configurator\Assets\PriceShow.prefab
+          projectPath: Assets\PriceShow.prefab
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\PriceShow.prefab.meta
+        label: PriceShow.prefab.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\PriceShow.prefab.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\PriceShow.prefab.meta
+          projectPath: Assets\PriceShow.prefab.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Purchase Complete.prefab
+        label: Purchase Complete.prefab
+        level: 1
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Purchase Complete.prefab
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Purchase Complete.prefab
+          projectPath: Assets\Purchase Complete.prefab
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\Purchase Complete.prefab.meta
+        label: Purchase Complete.prefab.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Purchase Complete.prefab.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Purchase Complete.prefab.meta
+          projectPath: Assets\Purchase Complete.prefab.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\PurchaseComplete.cs
+        label: PurchaseComplete.cs
+        level: 1
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\PurchaseComplete.cs
+          fullPath: C:\Users\Yonathan\Configurator\Assets\PurchaseComplete.cs
+          projectPath: Assets\PurchaseComplete.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scenes
+        label: Scenes
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scenes\SampleScene.unity
+        label: SampleScene.unity
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scenes\SampleScene.unity
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Scenes\SampleScene.unity
+          projectPath: Assets\Scenes\SampleScene.unity
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\Scenes\SampleScene_Profiles
+        label: SampleScene_Profiles
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\Scenes\SampleScene_Profiles\PostProcessing Profile.asset
+        label: PostProcessing Profile.asset
+        level: 3
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\Scenes\SampleScene_Profiles\PostProcessing Profile.asset
+          fullPath: C:\Users\Yonathan\Configurator\Assets\Scenes\SampleScene_Profiles\PostProcessing
+            Profile.asset
+          projectPath: Assets\Scenes\SampleScene_Profiles\PostProcessing Profile.asset
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\ScreenShake.cs
+        label: ScreenShake.cs
+        level: 1
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\ScreenShake.cs
+          fullPath: C:\Users\Yonathan\Configurator\Assets\ScreenShake.cs
+          projectPath: Assets\ScreenShake.cs
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\ScreenShake.cs.meta
+        label: ScreenShake.cs.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\ScreenShake.cs.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\ScreenShake.cs.meta
+          projectPath: Assets\ScreenShake.cs.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\squareiMM SDF.asset
+        label: squareiMM SDF.asset
+        level: 1
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\squareiMM SDF.asset
+          fullPath: C:\Users\Yonathan\Configurator\Assets\squareiMM SDF.asset
+          projectPath: Assets\squareiMM SDF.asset
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\squareiMM SDF.asset.meta
+        label: squareiMM SDF.asset.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\squareiMM SDF.asset.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\squareiMM SDF.asset.meta
+          projectPath: Assets\squareiMM SDF.asset.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\squareiMM.ttf
+        label: squareiMM.ttf
+        level: 1
+        isFolder: 0
+        isContainer: 1
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\squareiMM.ttf
+          fullPath: C:\Users\Yonathan\Configurator\Assets\squareiMM.ttf
+          projectPath: Assets\squareiMM.ttf
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\squareiMM.ttf.meta
+        label: squareiMM.ttf.meta
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\squareiMM.ttf.meta
+          fullPath: C:\Users\Yonathan\Configurator\Assets\squareiMM.ttf.meta
+          projectPath: Assets\squareiMM.ttf.meta
+          originalPath: 
+          indexStatus: 1
+          workTreeStatus: 1
+      - path: Assets\TextMesh Pro
+        label: TextMesh Pro
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\TextMesh Pro\Resources
+        label: Resources
+        level: 2
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\TextMesh Pro\Resources\Fonts & Materials
+        label: Fonts & Materials
+        level: 3
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF
+          - Fallback.asset
+        label: LiberationSans SDF - Fallback.asset
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF
+            - Fallback.asset
+          fullPath: C:\Users\Yonathan\Configurator\Assets\TextMesh Pro\Resources\Fonts
+            & Materials\LiberationSans SDF - Fallback.asset
+          projectPath: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
+            SDF - Fallback.asset
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF.asset
+        label: LiberationSans SDF.asset
+        level: 4
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF.asset
+          fullPath: C:\Users\Yonathan\Configurator\Assets\TextMesh Pro\Resources\Fonts
+            & Materials\LiberationSans SDF.asset
+          projectPath: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
+            SDF.asset
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: UserSettings
+        label: UserSettings
+        level: 0
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: UserSettings\Layouts
+        label: Layouts
+        level: 1
+        isFolder: 1
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: 
+          fullPath: 
+          projectPath: 
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 0
+      - path: UserSettings\Layouts\default-2021.dwlt
+        label: default-2021.dwlt
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 0
+        isLocked: 0
+        gitStatusEntry:
+          path: UserSettings\Layouts\default-2021.dwlt
+          fullPath: C:\Users\Yonathan\Configurator\UserSettings\Layouts\default-2021.dwlt
+          projectPath: UserSettings\Layouts\default-2021.dwlt
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
       selectedNode:
         path: 
         label: 
@@ -557,13 +3216,425 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-    gitStatusEntries: []
-    changedFilesText: No changed files
+    gitStatusEntries:
+    - path: Assets\CameraCustomization.cs
+      fullPath: C:\Users\Yonathan\Configurator\Assets\CameraCustomization.cs
+      projectPath: Assets\CameraCustomization.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Cars SDF.asset
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Cars SDF.asset
+      projectPath: Assets\Cars SDF.asset
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Cars SDF.asset.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Cars SDF.asset.meta
+      projectPath: Assets\Cars SDF.asset.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Cars.ttf
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Cars.ttf
+      projectPath: Assets\Cars.ttf
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Cars.ttf.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Cars.ttf.meta
+      projectPath: Assets\Cars.ttf.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Customized Weapons - Low poly\Material\Material.mat
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Customized Weapons - Low poly\Material\Material.mat
+      projectPath: Assets\Customized Weapons - Low poly\Material\Material.mat
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Designer SDF.asset
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Designer SDF.asset
+      projectPath: Assets\Designer SDF.asset
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Designer SDF.asset.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Designer SDF.asset.meta
+      projectPath: Assets\Designer SDF.asset.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Designer.otf
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Designer.otf
+      projectPath: Assets\Designer.otf
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Designer.otf.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Designer.otf.meta
+      projectPath: Assets\Designer.otf.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines.meta
+      projectPath: Assets\Engines.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX.meta
+      projectPath: Assets\Engines\Engines SFX.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_01.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_01.wav
+      projectPath: Assets\Engines\Engines SFX\Engine_01.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_01.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_01.wav.meta
+      projectPath: Assets\Engines\Engines SFX\Engine_01.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_02.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_02.wav
+      projectPath: Assets\Engines\Engines SFX\Engine_02.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_02.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_02.wav.meta
+      projectPath: Assets\Engines\Engines SFX\Engine_02.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_03.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_03.wav
+      projectPath: Assets\Engines\Engines SFX\Engine_03.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_03.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_03.wav.meta
+      projectPath: Assets\Engines\Engines SFX\Engine_03.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_04.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_04.wav
+      projectPath: Assets\Engines\Engines SFX\Engine_04.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_04.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_04.wav.meta
+      projectPath: Assets\Engines\Engines SFX\Engine_04.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_05.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_05.wav
+      projectPath: Assets\Engines\Engines SFX\Engine_05.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_05.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_05.wav.meta
+      projectPath: Assets\Engines\Engines SFX\Engine_05.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_06.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_06.wav
+      projectPath: Assets\Engines\Engines SFX\Engine_06.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_06.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_06.wav.meta
+      projectPath: Assets\Engines\Engines SFX\Engine_06.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_07.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_07.wav
+      projectPath: Assets\Engines\Engines SFX\Engine_07.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_07.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_07.wav.meta
+      projectPath: Assets\Engines\Engines SFX\Engine_07.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_08.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_08.wav
+      projectPath: Assets\Engines\Engines SFX\Engine_08.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Engines SFX\Engine_08.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Engines SFX\Engine_08.wav.meta
+      projectPath: Assets\Engines\Engines SFX\Engine_08.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX.meta
+      projectPath: Assets\Engines\Misc SFX.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Carn Horn 1.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Carn Horn
+        1.wav
+      projectPath: Assets\Engines\Misc SFX\Carn Horn 1.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Carn Horn 1.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Carn Horn
+        1.wav.meta
+      projectPath: Assets\Engines\Misc SFX\Carn Horn 1.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Carn Horn 2.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Carn Horn
+        2.wav
+      projectPath: Assets\Engines\Misc SFX\Carn Horn 2.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Carn Horn 2.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Carn Horn
+        2.wav.meta
+      projectPath: Assets\Engines\Misc SFX\Carn Horn 2.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Pounding.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Pounding.wav
+      projectPath: Assets\Engines\Misc SFX\Pounding.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Pounding.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Pounding.wav.meta
+      projectPath: Assets\Engines\Misc SFX\Pounding.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Screwdriver.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Screwdriver.wav
+      projectPath: Assets\Engines\Misc SFX\Screwdriver.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Screwdriver.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Screwdriver.wav.meta
+      projectPath: Assets\Engines\Misc SFX\Screwdriver.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Smashed_Window_01.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Smashed_Window_01.wav
+      projectPath: Assets\Engines\Misc SFX\Smashed_Window_01.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Smashed_Window_01.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Smashed_Window_01.wav.meta
+      projectPath: Assets\Engines\Misc SFX\Smashed_Window_01.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Smashed_Window_02.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Smashed_Window_02.wav
+      projectPath: Assets\Engines\Misc SFX\Smashed_Window_02.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Smashed_Window_02.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Smashed_Window_02.wav.meta
+      projectPath: Assets\Engines\Misc SFX\Smashed_Window_02.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Wrench.wav
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Wrench.wav
+      projectPath: Assets\Engines\Misc SFX\Wrench.wav
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Engines\Misc SFX\Wrench.wav.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Engines\Misc SFX\Wrench.wav.meta
+      projectPath: Assets\Engines\Misc SFX\Wrench.wav.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\GameManager.cs
+      fullPath: C:\Users\Yonathan\Configurator\Assets\GameManager.cs
+      projectPath: Assets\GameManager.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\LerpPitch.cs
+      fullPath: C:\Users\Yonathan\Configurator\Assets\LerpPitch.cs
+      projectPath: Assets\LerpPitch.cs
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\LerpPitch.cs.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\LerpPitch.cs.meta
+      projectPath: Assets\LerpPitch.cs.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Materials\Add.mat
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Materials\Add.mat
+      projectPath: Assets\Materials\Add.mat
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Materials\Add.mat.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Materials\Add.mat.meta
+      projectPath: Assets\Materials\Add.mat.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Materials\HighLight.mat
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Materials\HighLight.mat
+      projectPath: Assets\Materials\HighLight.mat
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Plus.png
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Plus.png
+      projectPath: Assets\Plus.png
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Plus.png.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Plus.png.meta
+      projectPath: Assets\Plus.png.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\PriceShow.prefab
+      fullPath: C:\Users\Yonathan\Configurator\Assets\PriceShow.prefab
+      projectPath: Assets\PriceShow.prefab
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\PriceShow.prefab.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\PriceShow.prefab.meta
+      projectPath: Assets\PriceShow.prefab.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Purchase Complete.prefab
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Purchase Complete.prefab
+      projectPath: Assets\Purchase Complete.prefab
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\Purchase Complete.prefab.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Purchase Complete.prefab.meta
+      projectPath: Assets\Purchase Complete.prefab.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\PurchaseComplete.cs
+      fullPath: C:\Users\Yonathan\Configurator\Assets\PurchaseComplete.cs
+      projectPath: Assets\PurchaseComplete.cs
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scenes\SampleScene.unity
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Scenes\SampleScene.unity
+      projectPath: Assets\Scenes\SampleScene.unity
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\Scenes\SampleScene_Profiles\PostProcessing Profile.asset
+      fullPath: C:\Users\Yonathan\Configurator\Assets\Scenes\SampleScene_Profiles\PostProcessing
+        Profile.asset
+      projectPath: Assets\Scenes\SampleScene_Profiles\PostProcessing Profile.asset
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\ScreenShake.cs
+      fullPath: C:\Users\Yonathan\Configurator\Assets\ScreenShake.cs
+      projectPath: Assets\ScreenShake.cs
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\ScreenShake.cs.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\ScreenShake.cs.meta
+      projectPath: Assets\ScreenShake.cs.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\squareiMM SDF.asset
+      fullPath: C:\Users\Yonathan\Configurator\Assets\squareiMM SDF.asset
+      projectPath: Assets\squareiMM SDF.asset
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\squareiMM SDF.asset.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\squareiMM SDF.asset.meta
+      projectPath: Assets\squareiMM SDF.asset.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\squareiMM.ttf
+      fullPath: C:\Users\Yonathan\Configurator\Assets\squareiMM.ttf
+      projectPath: Assets\squareiMM.ttf
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\squareiMM.ttf.meta
+      fullPath: C:\Users\Yonathan\Configurator\Assets\squareiMM.ttf.meta
+      projectPath: Assets\squareiMM.ttf.meta
+      originalPath: 
+      indexStatus: 1
+      workTreeStatus: 1
+    - path: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF -
+        Fallback.asset
+      fullPath: C:\Users\Yonathan\Configurator\Assets\TextMesh Pro\Resources\Fonts
+        & Materials\LiberationSans SDF - Fallback.asset
+      projectPath: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
+        SDF - Fallback.asset
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF.asset
+      fullPath: C:\Users\Yonathan\Configurator\Assets\TextMesh Pro\Resources\Fonts
+        & Materials\LiberationSans SDF.asset
+      projectPath: Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans
+        SDF.asset
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    - path: UserSettings\Layouts\default-2021.dwlt
+      fullPath: C:\Users\Yonathan\Configurator\UserSettings\Layouts\default-2021.dwlt
+      projectPath: UserSettings\Layouts\default-2021.dwlt
+      originalPath: 
+      indexStatus: 0
+      workTreeStatus: 3
+    changedFilesText: 67 changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2023-02-15T14:57:07.363+02:00
+      updatedTimeString: 2023-02-17T09:52:11.219+02:00
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2023-02-15T14:56:57.127+02:00
+      updatedTimeString: 2023-02-17T10:04:31.105+02:00
       cacheType: 6
     lastLocksChangedEvent:
       updatedTimeString: 0001-01-01T00:00:00.000+00:00
@@ -21698,9 +24769,9 @@ MonoBehaviour:
   currentRemoteName: origin
   currentBranch: master
   currentRemoteUrl: https://github.com/SpeechStudios/Configurator.git
-  statusAhead: 0
+  statusAhead: 1
   statusBehind: 0
-  hasItemsToCommit: 0
+  hasItemsToCommit: 1
   isTrackingRemoteBranch: 1
   currentBranchContent:
     m_Text: master
@@ -21711,13 +24782,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2023-02-15T14:57:07.363+02:00
+    updatedTimeString: 2023-02-17T09:52:11.219+02:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2023-02-15T14:57:07.833+02:00
+    updatedTimeString: 2023-02-17T09:52:18.482+02:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2023-02-15T14:56:57.127+02:00
+    updatedTimeString: 2023-02-17T09:52:18.482+02:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull
@@ -21760,10 +24831,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 8
-    y: 628
-    width: 1453
-    height: 355
+    x: 0
+    y: 738
+    width: 1465
+    height: 253
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -21781,22 +24852,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/SO_Weapons
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/SO_Weapons
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Yonathan\Configurator
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 65}
-    m_SelectedIDs: dc700000
-    m_LastClickedID: 28892
-    m_ExpandedIDs: 00000000ba700000bc700000be700000c0700000e070000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 028f0000
+    m_LastClickedID: 36610
+    m_ExpandedIDs: 00000000028f0000048f0000068f0000088f00000a8f00000c8f00000e8f0000108f0000128f0000148f0000168f0000188f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -21824,7 +24895,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ba700000bc700000be700000c0700000
+    m_ExpandedIDs: 00000000028f0000048f0000068f0000088f00000a8f00000c8f00000e8f0000108f0000128f0000148f0000168f0000188f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -21849,10 +24920,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: de5f0000
-    m_LastClickedInstanceID: 24542
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300004e64000082960000f8640000
+    m_ExpandedInstanceIDs: c62300004e64000082960000f864000080650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -21876,10 +24947,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 47}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 207
+  m_DirectoriesAreaWidth: 421
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -21900,10 +24971,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1462
-    y: 81
-    width: 449
-    height: 902
+    x: 1466
+    y: 73
+    width: 453
+    height: 918
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -21941,20 +25012,20 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 8
-    y: 81
-    width: 359
-    height: 526
+    x: 0
+    y: 73
+    width: 353
+    height: 644
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 18610000
-      m_LastClickedID: 24856
-      m_ExpandedIDs: 848bfeff1c8cfeff84a9feffeccdfeff12dafeff9888ffffda88ffff5ae2ffff30fbffff485d0000b85d0000285e0000c25e00001a5f0000325f0000905f00002860000040610000486100001e62000032620000506200006e6200008a620000
+      scrollPos: {x: 0, y: 513}
+      m_SelectedIDs: 20e30000
+      m_LastClickedID: 58144
+      m_ExpandedIDs: b4bafffffabaffff9cc0ffff04fbffffb0de0000f2df000076e200006ce5000030e6000066e90000cae900002af200003cf200005cf40000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -21998,10 +25069,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 368
-    y: 81
-    width: 1092
-    height: 526
+    x: 354
+    y: 73
+    width: 1110
+    height: 644
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -22022,9 +25093,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -141, y: 149}
+      snapOffset: {x: 101, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
+      snapCorner: 0
       id: unity-grid-and-snap-toolbar
       index: 1
       layout: 1
@@ -22236,9 +25307,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.8324394, y: -1.6384486, z: -2.137749}
+    m_Target: {x: -14.622088, y: -5.9319477, z: -4.8235197}
     speed: 2
-    m_Value: {x: 0.8324394, y: -1.6384486, z: -2.137749}
+    m_Value: {x: -14.622088, y: -5.9319477, z: -4.8235197}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -22267,9 +25338,9 @@ MonoBehaviour:
       m_Size: {x: 0, y: 0}
     yGrid:
       m_Fade:
-        m_Target: 1
+        m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -22281,17 +25352,17 @@ MonoBehaviour:
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
-    m_ShowGrid: 1
+    m_ShowGrid: 0
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.23574966, y: 0.53015894, z: -0.15609203, w: 0.799388}
+    m_Target: {x: -0.13027114, y: 0.71357334, z: -0.13783346, w: -0.6744225}
     speed: 2
-    m_Value: {x: 0.23574586, y: 0.5301504, z: -0.15608951, w: 0.7993751}
+    m_Value: {x: -0.13027106, y: 0.7135729, z: -0.13783337, w: -0.6744221}
   m_Size:
-    m_Target: 5.0580564
+    m_Target: 10
     speed: 2
-    m_Value: 4.8402452
+    m_Value: 10
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -22309,7 +25380,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.11128294, y: 0.77875376, z: -0.14437671, w: -0.60028726}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -22336,10 +25407,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 368
-    y: 81
-    width: 1092
-    height: 526
+    x: 354
+    y: 73
+    width: 1110
+    height: 644
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -22350,7 +25421,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1092, y: 505}
+  m_TargetSize: {x: 1110, y: 623}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -22365,10 +25436,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -546
-    m_HBaseRangeMax: 546
-    m_VBaseRangeMin: -252.5
-    m_VBaseRangeMax: 252.5
+    m_HBaseRangeMin: -555
+    m_HBaseRangeMax: 555
+    m_VBaseRangeMin: -311.5
+    m_VBaseRangeMax: 311.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -22386,23 +25457,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1092
-      height: 505
+      width: 1110
+      height: 623
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 546, y: 252.5}
+    m_Translation: {x: 555, y: 311.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -546
-      y: -252.5
-      width: 1092
-      height: 505
+      x: -555
+      y: -311.5
+      width: 1110
+      height: 623
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1092, y: 526}
+  m_LastWindowPixelSize: {x: 1110, y: 644}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -22428,10 +25499,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 8
-    y: 628
-    width: 1453
-    height: 355
+    x: 0
+    y: 738
+    width: 1465
+    height: 253
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default

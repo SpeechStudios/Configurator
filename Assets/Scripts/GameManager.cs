@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Transform Cam_Pos_Main;
     public Transform Cam_Pos_Select;
     public Transform Cam_Pos_Customize;
+    public Vector3 PreviousPosition;
     public List<GameObject> cars;
     public float TransitionTime = 0.5f;
     public int AvailableMoney = 200000;
@@ -19,7 +20,12 @@ public class GameManager : MonoBehaviour
     public GameObject CustomizeUIPanel, ColorShopUIPanel;
     public TextMeshProUGUI ColorCost;
     public GameObject PurchaseCompleteUI, PurchaseComplete, PriceShow;
+    public Transform PurchaseCompletePosition, priceShowPosition;
     public AudioClip NoMoney;
+    public Sprite Mute, UnMute;
+    public Image MuteButton;
+    public AudioSource BG_Music;
+    bool muted;
 
     private Camera cam;
     private int currentCar;
@@ -191,10 +197,11 @@ public class GameManager : MonoBehaviour
         {
             carSlots.Add(cars[currentCar].GetComponent<CarStatistics>());
             PurchaseCompleteUI.SetActive(true);
-            PurchaseComplete.SetActive(true);
-            GameObject priceShow = Instantiate(PriceShow);
-            PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + cars[currentCar].GetComponent<CarStatistics>().Cost.ToString();
-            PriceShow.SetActive(true);
+            GameObject PC = Instantiate(PurchaseComplete, PurchaseCompletePosition);
+            PC.transform.SetParent(PurchaseCompletePosition, false);
+            GameObject PS = Instantiate(PriceShow, priceShowPosition);
+            PS.transform.SetParent(priceShowPosition, false);
+            PS.GetComponent<TextMeshProUGUI>().text = "-$" + cars[currentCar].GetComponent<CarStatistics>().Cost.ToString();
             SavedCar car = new();
             car.CarIndex = cars[currentCar].GetComponent<CarStatistics>().GarrageSlot;
             car.color = cars[currentCar].GetComponent<CarStatistics>().SavedColor;
@@ -308,6 +315,7 @@ public class GameManager : MonoBehaviour
             if (item.EquippedWeapon != null)
             {
                 item.WeaponTransform.parent.GetComponent<MeshRenderer>().enabled = false;
+                item.WeaponTransform.parent.GetChild(3).GetComponent<MeshRenderer>().enabled = false;
                 if (item.InstantiatedWeapon == null)
                 {
                     item.InstantiatedWeapon = Instantiate(item.EquippedWeapon.WeaponPrefab, item.WeaponTransform.position, item.WeaponTransform.rotation);
@@ -417,9 +425,11 @@ public class GameManager : MonoBehaviour
             EquipWeapon();
             currentWeapon.EquippedWeapon = CurrentWeaponData;
             SaveWeapons();
-            PurchaseComplete.SetActive(true);
-            PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + CurrentWeaponData.Cost[0].ToString();
-            PriceShow.SetActive(true);
+            GameObject PC = Instantiate(PurchaseComplete, PurchaseCompletePosition);
+            PC.transform.SetParent(PurchaseCompletePosition, false);
+            GameObject PS = Instantiate(PriceShow, priceShowPosition);
+            PS.transform.SetParent(priceShowPosition, false);
+            PS.GetComponent<TextMeshProUGUI>().text = "-$" + CurrentWeaponData.Cost[0].ToString();
             AvailableMoney -= CurrentWeaponData.Cost[0];
             DisplayMoney();
             DisplayWeaponData(CurrentWeaponPrefab, CurrentWeaponData);
@@ -434,14 +444,17 @@ public class GameManager : MonoBehaviour
     {
         if (AvailableMoney >= CurrentWeaponData.Cost[CurrentWeaponData.Level])
         {
-            PurchaseComplete.SetActive(true);
-            PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + CurrentWeaponData.Cost[CurrentWeaponData.Level].ToString();
-            PriceShow.SetActive(true);
+            GameObject PC = Instantiate(PurchaseComplete, PurchaseCompletePosition);
+            PC.transform.SetParent(PurchaseCompletePosition, false);
+            GameObject PS = Instantiate(PriceShow, priceShowPosition);
+            PS.transform.SetParent(priceShowPosition, false);
+            PS.GetComponent<TextMeshProUGUI>().text = "-$" + CurrentWeaponData.Cost[CurrentWeaponData.Level].ToString();
             AvailableMoney -= CurrentWeaponData.Cost[0];
             DisplayMoney();
             CurrentWeaponData.Level++;
             DisplayWeaponData(CurrentWeaponPrefab, CurrentWeaponData);
             SaveWeapons();
+
         }
     }
 
@@ -468,6 +481,7 @@ public class GameManager : MonoBehaviour
                     {
                         item.EquippedWeapon = newData;
                         item.WeaponTransform.parent.GetComponent<MeshRenderer>().enabled = false;
+                        item.WeaponTransform.parent.GetChild(3).GetComponent<MeshRenderer>().enabled = false;
                         item.InstantiatedWeapon = Instantiate(newData.WeaponPrefab, item.WeaponTransform.position, item.WeaponTransform.rotation);
                         item.InstantiatedWeapon.transform.localScale = item.WeaponTransform.localScale;
                         DisplayWeaponData(item.InstantiatedWeapon, newData);
@@ -625,8 +639,11 @@ public class GameManager : MonoBehaviour
                 car.CarIndex = carSlots[currentCar].GarrageSlot;
                 car.color = selectedmat.myMat.color;
                 SaveData.SaveCarData(car, currentCar.ToString());
-                PriceShow.GetComponent<TextMeshProUGUI>().text = "-$" + selectedmat.Cost.ToString();
-                PriceShow.SetActive(true);
+                GameObject PC = Instantiate(PurchaseComplete, PurchaseCompletePosition);
+                PC.transform.SetParent(PurchaseCompletePosition, false);
+                GameObject PS = Instantiate(PriceShow, priceShowPosition);
+                PS.transform.SetParent(priceShowPosition, false);
+                PS.GetComponent<TextMeshProUGUI>().text = "-$" + selectedmat.Cost.ToString();
                 AvailableMoney -= selectedmat.Cost;
                 DisplayMoney();
                 return;
@@ -731,6 +748,7 @@ public class GameManager : MonoBehaviour
         {
             item.WeaponTransform.parent.gameObject.SetActive(false);
         }
+        PreviousPosition = cam.transform.position;
         LeanTween.move(cam.gameObject, currentWeapon.WeaponCamTransform.position, TransitionTime);
         LeanTween.rotate(cam.gameObject, currentWeapon.WeaponCamTransform.rotation.eulerAngles, TransitionTime);
         DisplayWeaponData(CurrentWeaponPrefab, CurrentWeaponData);
@@ -741,7 +759,7 @@ public class GameManager : MonoBehaviour
     {
         WeaponShopUIPanel.SetActive(false);
         CustomizeUIPanel.SetActive(true);
-        LeanTween.move(cam.gameObject, Cam_Pos_Customize, TransitionTime);
+        LeanTween.move(cam.gameObject, PreviousPosition, TransitionTime);
         LeanTween.rotate(cam.gameObject, Cam_Pos_Customize.rotation.eulerAngles, TransitionTime);
         Destroy(CurrentWeaponPrefab);
         cam.GetComponent<CameraCustomization>().enabled = true;
@@ -770,10 +788,27 @@ public class GameManager : MonoBehaviour
         currentCarPrefab.GetComponent<CarStatistics>().mat.color = OriginalColor;
 
     }
-    public void Restart()
+    public void Mute_UnMute()
     {
-        PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene(0);
+        if(!muted)
+        {
+            Debug.Log("Unmuted");
+            MuteButton.sprite = Mute;
+            BG_Music.volume = 0;
+            muted = true;
+        }
+        else
+        {
+            Debug.Log("Muted");
+            MuteButton.sprite = UnMute;
+            BG_Music.volume = 0.15f;
+            muted = false;
+        }
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
     #endregion
 }

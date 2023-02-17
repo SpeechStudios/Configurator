@@ -21,7 +21,7 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 1
   intensity:
-    overrideState: 0
+    overrideState: 1
     value: 0
   fastMode:
     overrideState: 0
@@ -1380,7 +1380,7 @@ MonoBehaviour:
     value: {r: 0.6698113, g: 0.42193297, b: 0.034754362, a: 1}
   ambientOnly:
     overrideState: 1
-    value: 1
+    value: 0
   noiseFilterTolerance:
     overrideState: 0
     value: 0
